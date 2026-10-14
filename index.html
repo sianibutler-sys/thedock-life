@@ -251,7 +251,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
 <footer>
   <svg class="fw" viewBox="-2 0 274 128" aria-hidden="true"><image href="/assets/web-stroke-cream.png" x="-2" y="0" width="274" height="128"/><image href="/assets/web-dot.png" x="-2" y="0" width="274" height="128"/></svg>
   <div class="links k">
-    <a href="mailto:siani@thedock.life">siani@thedock.life</a>
+    <a href="mailto:hello@thedock.life">hello@thedock.life</a>
     <a href="https://instagram.com/thedock.life" target="_blank" rel="noopener">@thedock.life</a>
     <a href="/privacy">Privacy</a>
   </div>
@@ -424,7 +424,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
     fetch('/api/join', {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify(data)})
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then(() => { document.getElementById('join').classList.add('joined'); document.getElementById('done').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'center'}); })
-      .catch(() => { msg.textContent = 'That didn\'t go through. Try again, or write to siani@thedock.life.'; msg.classList.add('err'); go.disabled = false; go.textContent = 'Add me to the list'; });
+      .catch(() => { msg.textContent = 'That didn\'t go through. Try again, or write to hello@thedock.life.'; msg.classList.add('err'); go.disabled = false; go.textContent = 'Add me to the list'; });
   });
 })();
 </script>
