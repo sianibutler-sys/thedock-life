@@ -3,7 +3,14 @@
 const BASE = 'appQSH0Qni0DmPSA1';
 const TABLE = 'tbloPQRWIlXwTuyJc'; // Guest List
 const API = `https://api.airtable.com/v0/${BASE}/${TABLE}`;
-const INTERESTS = ['Suppers on the water', 'Days on the water', 'Gatherings on land', 'Things to take home'];
+const INTERESTS = [
+  "Chef's suppers on the water",
+  'Sunset sails',
+  'Crab feasts and oyster roasts',
+  'Music by the water',
+  'Slow mornings on the dock',
+  'Stories of the Chesapeake',
+];
 
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -46,7 +53,7 @@ export async function onRequestPost({ request, env }) {
     const saved = await fetch(`${API}/${existing.id}`, {
       method: 'PATCH',
       headers: { ...auth, 'content-type': 'application/json' },
-      body: JSON.stringify({ fields }),
+      body: JSON.stringify({ fields, typecast: true }),
     });
     if (!saved.ok) return json({ error: 'save failed' }, 502);
     return json({ ok: true });
@@ -63,7 +70,7 @@ export async function onRequestPost({ request, env }) {
   const saved = await fetch(API, {
     method: 'POST',
     headers: { ...auth, 'content-type': 'application/json' },
-    body: JSON.stringify({ records: [{ fields }] }),
+    body: JSON.stringify({ records: [{ fields }], typecast: true }),
   });
   if (!saved.ok) return json({ error: 'save failed', airtableStatus: saved.status }, 502);
   return json({ ok: true });

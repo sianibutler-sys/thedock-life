@@ -24,7 +24,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--paper);color:var(--navy);font-family:'Cormorant Garamond',Georgia,serif;font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
+body{background:var(--paper) url(/assets/paper.png);background-blend-mode:multiply;color:var(--navy);font-family:'Cormorant Garamond',Georgia,serif;font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .k{font-family:'DM Mono',ui-monospace,monospace;font-weight:500;text-transform:uppercase;letter-spacing:.28em;font-size:12px}
 .sc{font-family:'Pinyon Script',cursive;font-weight:400;line-height:1}
@@ -47,15 +47,18 @@ a{color:inherit}
 .tag .sub{margin-top:14px;opacity:0;transition:opacity 1.2s ease .5s}
 .ready .tag .line{opacity:1;transform:none}
 .ready .tag .sub{opacity:.85}
-.cue{position:absolute;left:50%;bottom:max(22px,env(safe-area-inset-bottom));transform:translateX(-50%);color:var(--cream);text-decoration:none;text-align:center;opacity:.9}
-.cue span{display:block;margin:8px auto 0;width:1px;height:26px;background:currentColor;animation:drip 2.4s ease-in-out infinite}
-@keyframes drip{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+.cta{display:inline-block;margin-top:clamp(22px,4vh,36px);position:relative;z-index:3;white-space:nowrap;text-decoration:none;color:var(--cream);background:var(--navy);border-radius:999px;padding:16px 26px;opacity:0;transition:opacity 1.2s ease 1s,background .25s;z-index:2}
+.cta:hover{background:#1E3354}
+.ready .cta{opacity:1}
+.night .cta{background:var(--cream);color:var(--navy)}
+.shore{position:absolute;left:0;right:0;bottom:0;height:16%;background:linear-gradient(180deg,rgba(246,241,232,0) 0%,rgba(246,241,232,.35) 45%,rgba(246,241,232,.85) 80%,var(--paper) 100%);pointer-events:none}
+.divider{display:block;width:100%;height:auto;max-height:46px;object-fit:cover;opacity:.85;margin:0}
 
 /* paper sections */
 .paper{background:var(--paper) url(/assets/paper.png);background-blend-mode:multiply}
 section{padding:clamp(72px,12vw,140px) 20px;text-align:center}
 .wrap{max-width:640px;margin:0 auto}
-.reveal{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s ease}
+.reveal{opacity:0;transform:translateY(8px);transition:opacity .9s ease,transform .9s ease}
 .reveal.in{opacity:1;transform:none}
 .three{display:flex;flex-direction:column;gap:6px;margin:22px 0 34px}
 .three div{font-style:italic;font-size:clamp(34px,6vw,58px);line-height:1.08}
@@ -63,22 +66,21 @@ section{padding:clamp(72px,12vw,140px) 20px;text-align:center}
 .body{font-size:clamp(20px,2.4vw,23px);line-height:1.55;color:#24324A}
 .rule{width:44px;height:1px;background:var(--navy);opacity:.3;margin:0 auto}
 
-.ed{background:var(--navy);color:var(--cream)}
-.ed .big{font-weight:500;font-size:clamp(64px,13vw,120px);line-height:1;margin:16px 0 6px}
-.ed .sc{color:var(--orange);font-size:clamp(30px,5vw,42px)}
-.ed .meta{margin-top:26px;line-height:2.1;opacity:.9}
-.count{display:inline-block;margin-top:30px;padding:10px 18px;border:1px solid rgba(251,248,242,.35);border-radius:999px}
-.ed .note{margin-top:30px;font-size:20px;line-height:1.5;opacity:.85}
-.with{margin-top:34px}
-.with .names{font-style:italic;font-size:22px;margin-top:6px}
-
+.card{background:#FFFDF8;border:1px solid rgba(20,37,63,.18);outline:1px solid rgba(20,37,63,.12);outline-offset:-10px;border-radius:4px;padding:clamp(40px,8vw,64px) clamp(22px,6vw,56px);box-shadow:0 18px 40px -28px rgba(20,37,63,.45)}
+.card .big{font-weight:500;font-size:clamp(58px,12vw,104px);line-height:1;margin:14px 0 4px}
+.card .sc{color:var(--orange);font-size:clamp(28px,5vw,40px)}
+.card .meta{margin-top:22px;line-height:2.1;opacity:.85}
+.count{display:inline-block;margin-top:24px;padding:9px 16px;border:1px solid rgba(20,37,63,.3);border-radius:999px}
+.dab{display:block;width:9px;margin:30px auto 22px}
+.card .names{font-style:italic;font-size:22px;margin-top:6px}
+.card .note{margin-top:26px;font-size:20px;line-height:1.5;color:#24324A}
 .story h2{font-weight:500;font-size:clamp(40px,7vw,64px);line-height:1.05;margin:18px 0 26px}
 .story .body{text-align:left}
 .story .more{margin-top:28px;font-style:italic;font-size:22px}
 .sources{margin-top:18px;font-size:11px;letter-spacing:.18em;opacity:.7}
 .sources a{text-underline-offset:3px}
 
-.join h2{font-weight:500;font-size:clamp(40px,7vw,60px);line-height:1.05;margin:16px 0 14px}
+.join .three{margin-top:16px}
 form{margin-top:34px;text-align:left;display:grid;gap:18px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media (max-width:520px){.row{grid-template-columns:1fr}}
@@ -91,7 +93,7 @@ legend{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-t
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{position:relative;cursor:pointer}
 .chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
-.chip span{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border:1px solid rgba(20,37,63,.3);border-radius:999px;font-size:19px;background:rgba(255,253,248,.6);transition:background .25s,color .25s,border-color .25s}
+.chip span{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border:1px solid rgba(20,37,63,.3);border-radius:999px;font-size:18px;background:rgba(255,253,248,.6);transition:background .25s,color .25s,border-color .25s}
 .chip span::before{content:"";width:10px;height:10px;border-radius:50%;border:1.5px solid var(--orange);transition:background .25s}
 .chip input:checked+span{background:var(--navy);color:var(--cream);border-color:var(--navy)}
 .chip input:checked+span::before{background:var(--orange)}
@@ -143,67 +145,36 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
   <div class="tag">
     <div class="line">The water brings people together.</div>
     <div class="sub k">Life on the water, starting with the Dock Supper Club</div>
+    <a class="cta k" href="#join">Join the guest list</a>
   </div>
-  <a class="cue k" href="#dock">Come to the water<span></span></a>
+  <div class="shore" aria-hidden="true"></div>
 </header>
 
 <main>
-<section class="paper" id="dock">
+<section class="paper join" id="join">
   <div class="wrap">
-    <div class="k reveal">Dock</div>
+    <div class="k reveal">The guest list</div>
     <div class="three">
       <div class="reveal">Come to the water.</div>
       <div class="reveal">Breathe.</div>
       <div class="reveal">Stay a while.</div>
     </div>
-    <p class="body reveal">Dock gathers people by the water and gives them a reason to stay. Some evenings that means eight courses and three signature cocktails. Some afternoons it means a blanket, a view and nowhere else to be. It starts this fall in Baltimore and grows one gathering at a time.</p>
-  </div>
-</section>
-
-<section class="ed" id="edition">
-  <div class="wrap">
-    <div class="k reveal">Dock Supper Club</div>
-    <div class="big reveal">Edition 01</div>
-    <div class="sc reveal">an evening on the water</div>
-    <div class="meta k reveal">Thursday, October 29<br>Inner Harbor, Baltimore</div>
-    <div class="count k reveal" id="count" hidden></div>
-    <div class="with reveal">
-      <div class="k" style="opacity:.75">With The Chef Al Experience</div>
-      <div class="names">Chef Al Green &amp; Cheyenne Green</div>
-    </div>
-    <p class="note reveal" id="ednote">This first evening is spoken for. The guest list hears about the next one first.</p>
-  </div>
-</section>
-
-<section class="paper story" id="story">
-  <div class="wrap">
-    <div class="k reveal">The water brings people together</div>
-    <h2 class="reveal">Baltimore, 1866</h2>
-    <p class="body reveal">In 1865, white caulkers on the Baltimore docks struck to push Black caulkers out of the shipyards. Isaac Myers, a caulker himself, answered by organizing. Early the next year he and his fellow workers raised $10,000 from Black Baltimoreans, bought a shipyard and railway of their own, and named it the Chesapeake Marine Railway and Dry Dock Company. Within months it employed 300 Black caulkers. The yard ran until 1884. Its site is now part of the Frederick Douglass–Isaac Myers Maritime Park in Fells Point.</p>
-    <p class="more reveal">One story from these waters. More are coming.</p>
-    <p class="sources k reveal">Sources: <a href="https://blackpast.org/african-american-history/myers-isaac-1835-1891" target="_blank" rel="noopener">BlackPast</a> · <a href="https://en.wikipedia.org/wiki/Chesapeake_Marine_Railway_and_Dry_Dock_Company" target="_blank" rel="noopener">Wikipedia</a></p>
-  </div>
-</section>
-
-<section class="paper join" id="join" style="padding-top:0">
-  <div class="wrap">
-    <div class="rule reveal" style="margin-bottom:clamp(72px,12vw,140px)"></div>
-    <div class="k reveal">The guest list</div>
-    <h2 class="reveal">Hear about the next one first</h2>
-    <p class="body reveal">Tell us what draws you to the water. We'll write when the next gathering opens.</p>
+    <p class="body reveal">Dock gathers people by the water and gives them a reason to stay. Some evenings that means eight courses and three signature cocktails. Some afternoons it means a blanket, a view and nowhere else to be. The guest list hears about every gathering first.</p>
     <form id="form" class="reveal" novalidate>
       <div class="row">
         <label class="f"><span>First name</span><input type="text" name="firstName" autocomplete="given-name" required maxlength="100"></label>
-        <label class="f"><span>Last name</span><input type="text" name="lastName" autocomplete="family-name" maxlength="100"></label>
+        <label class="f"><span>Last name (optional)</span><input type="text" name="lastName" autocomplete="family-name" maxlength="100"></label>
       </div>
       <label class="f"><span>Email</span><input type="email" name="email" autocomplete="email" inputmode="email" required maxlength="200"></label>
       <fieldset>
-        <legend>What draws you to the water</legend>
+        <legend>What draws you to the water? Pick any.</legend>
         <div class="chips">
-          <label class="chip"><input type="checkbox" name="interests" value="Suppers on the water"><span>Suppers on the water</span></label>
-          <label class="chip"><input type="checkbox" name="interests" value="Days on the water"><span>Days on the water</span></label>
-          <label class="chip"><input type="checkbox" name="interests" value="Gatherings on land"><span>Gatherings on land</span></label>
-          <label class="chip"><input type="checkbox" name="interests" value="Things to take home"><span>Things to take home</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Chef's suppers on the water"><span>Chef's suppers on the water</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Sunset sails"><span>Sunset sails</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Crab feasts and oyster roasts"><span>Crab feasts and oyster roasts</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Music by the water"><span>Music by the water</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Slow mornings on the dock"><span>Slow mornings on the dock</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Stories of the Chesapeake"><span>Stories of the Chesapeake</span></label>
         </div>
       </fieldset>
       <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
@@ -215,6 +186,36 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
       <div class="sc">Thank you.</div>
       <p>You're on the list. We'll write when the next gathering opens.</p>
     </div>
+  </div>
+</section>
+
+<img class="divider reveal" src="/assets/horizon.png" alt="">
+
+<section class="paper" id="edition">
+  <div class="wrap">
+    <div class="card reveal">
+      <div class="k">Dock Supper Club</div>
+      <div class="big">Edition 01</div>
+      <div class="sc">an evening on the water</div>
+      <div class="meta k">Thursday, October 29<br>Inner Harbor, Baltimore</div>
+      <div class="count k" id="count" hidden></div>
+      <img class="dab" src="/assets/dab.png" alt="">
+      <div class="k" style="opacity:.75">With The Chef Al Experience</div>
+      <div class="names">Chef Al Green &amp; Cheyenne Green</div>
+      <p class="note" id="ednote">This first evening is spoken for. The guest list hears about the next one first.</p>
+    </div>
+  </div>
+</section>
+
+<img class="divider reveal" src="/assets/horizon.png" alt="" style="transform:scaleX(-1)">
+
+<section class="paper story" id="story">
+  <div class="wrap">
+    <div class="k reveal">The water brings people together</div>
+    <h2 class="reveal">Baltimore, 1866</h2>
+    <p class="body reveal">In 1865, white caulkers on the Baltimore docks struck to push Black caulkers out of the shipyards. Isaac Myers, a caulker himself, answered by organizing. Early the next year he and his fellow workers raised $10,000 from Black Baltimoreans, bought a shipyard and railway of their own, and named it the Chesapeake Marine Railway and Dry Dock Company. Within months it employed 300 Black caulkers. The yard ran until 1884. Its site is now part of the Frederick Douglass–Isaac Myers Maritime Park in Fells Point.</p>
+    <p class="more reveal">One story from these waters. More are coming.</p>
+    <p class="sources k reveal">Sources: <a href="https://blackpast.org/african-american-history/myers-isaac-1835-1891" target="_blank" rel="noopener">BlackPast</a> · <a href="https://en.wikipedia.org/wiki/Chesapeake_Marine_Railway_and_Dry_Dock_Company" target="_blank" rel="noopener">Wikipedia</a></p>
   </div>
 </section>
 </main>
@@ -288,6 +289,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
     root.style.setProperty('--water-top', cols[2]); root.style.setProperty('--water-bot', cols[3]);
     const dark = lum(cols[0]) * .5 + lum(cols[1]) * .5 < .55;
     root.style.setProperty('--hero-text', dark ? '#FBF8F2' : '#14253F');
+    hero.classList.toggle('night', dark);
     ink.setAttribute('href', dark ? '/assets/web-stroke-cream.png' : '/assets/web-stroke-navy.png');
     waterDark = lum(cols[3]) < .45;
     // by day the wave's own dot is the sun; at night a moon crosses the sky above the mark
@@ -357,7 +359,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
   if (!reduce) requestAnimationFrame(tick);
 
   // ---- scroll reveals ----
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .15});
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .08, rootMargin: '0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (el.parentElement.classList.contains('three') ? [...el.parentElement.children].indexOf(el) * .35 : 0) + 's'; io.observe(el); });
 
   // ---- Edition 01 countdown, then a thank-you after the night ----
