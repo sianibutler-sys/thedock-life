@@ -98,6 +98,13 @@ legend{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-t
 .chip input:checked+span{background:var(--navy);color:var(--cream);border-color:var(--navy)}
 .chip input:checked+span::before{background:var(--orange)}
 .hp{position:absolute;left:-9999px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:17px;line-height:1.45;cursor:pointer}
+.consent input{width:20px;height:20px;margin-top:3px;accent-color:var(--navy);flex:none}
+.consent[hidden],#otherWrap[hidden]{display:none}
+.small a{text-underline-offset:3px}
+fieldset+fieldset{margin-top:6px}
+input[type=tel]{width:100%;font:inherit;font-size:20px;color:var(--navy);background:rgba(255,253,248,.7);border:1px solid rgba(20,37,63,.25);border-radius:10px;padding:13px 14px}
+input::placeholder{color:rgba(20,37,63,.4);font-style:italic}
 button{justify-self:start;font-family:'DM Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--cream);background:var(--navy);border:0;border-radius:999px;padding:17px 28px;cursor:pointer;transition:background .25s}
 button:hover{background:#1E3354}
 button[disabled]{opacity:.6;cursor:default}
@@ -166,21 +173,42 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
         <label class="f"><span>Last name (optional)</span><input type="text" name="lastName" autocomplete="family-name" maxlength="100"></label>
       </div>
       <label class="f"><span>Email</span><input type="email" name="email" autocomplete="email" inputmode="email" required maxlength="200"></label>
+      <div class="row">
+        <label class="f"><span>Mobile (optional)</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40"></label>
+        <label class="f"><span>ZIP code (optional)</span><input type="text" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10"></label>
+      </div>
+      <label class="consent" id="textsWrap" hidden><input type="checkbox" name="textsOk"><span>Text me about gatherings. Reply STOP anytime to opt out. Message and data rates may apply.</span></label>
       <fieldset>
-        <legend>What draws you to the water? Pick any.</legend>
+        <legend>What would bring you to the water? Pick any.</legend>
         <div class="chips">
           <label class="chip"><input type="checkbox" name="interests" value="Chef's suppers on the water"><span>Chef's suppers on the water</span></label>
           <label class="chip"><input type="checkbox" name="interests" value="Sunset sails"><span>Sunset sails</span></label>
           <label class="chip"><input type="checkbox" name="interests" value="Crab feasts and oyster roasts"><span>Crab feasts and oyster roasts</span></label>
-          <label class="chip"><input type="checkbox" name="interests" value="Music by the water"><span>Music by the water</span></label>
-          <label class="chip"><input type="checkbox" name="interests" value="Slow mornings on the dock"><span>Slow mornings on the dock</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Live music by the water"><span>Live music by the water</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Game nights on the dock"><span>Game nights on the dock</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Sunrise yoga on the dock"><span>Sunrise yoga on the dock</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Paddleboarding and kayaking"><span>Paddleboarding and kayaking</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Learn to sail, crab or shuck"><span>Learn to sail, crab or shuck</span></label>
           <label class="chip"><input type="checkbox" name="interests" value="Stories of the Chesapeake"><span>Stories of the Chesapeake</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Hosting my own celebration"><span>Hosting my own celebration</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="Something else" id="otherBox"><span>Something else</span></label>
+        </div>
+        <label class="f" id="otherWrap" hidden style="margin-top:6px"><span>Tell us what</span><input type="text" name="other" maxlength="500" placeholder="Bonfires, fishing, a book club..."></label>
+      </fieldset>
+      <fieldset>
+        <legend>Who would you bring?</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="comingWith" value="Just me"><span>Just me</span></label>
+          <label class="chip"><input type="checkbox" name="comingWith" value="A date"><span>A date</span></label>
+          <label class="chip"><input type="checkbox" name="comingWith" value="Friends"><span>Friends</span></label>
+          <label class="chip"><input type="checkbox" name="comingWith" value="Family"><span>Family</span></label>
+          <label class="chip"><input type="checkbox" name="comingWith" value="My team or company"><span>My team or company</span></label>
         </div>
       </fieldset>
       <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
       <button type="submit" id="go">Add me to the list</button>
       <p class="msg" id="msg" role="status"></p>
-      <p class="small">Your email stays with us. You can ask to come off the list anytime.</p>
+      <p class="small">Your details stay with us and are never sold. You can come off the list anytime. Read the <a href="/privacy">privacy policy</a>.</p>
     </form>
     <div class="done" id="done" role="status">
       <div class="sc">Thank you.</div>
@@ -202,7 +230,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
       <img class="dab" src="/assets/dab.png" alt="">
       <div class="k" style="opacity:.75">With The Chef Al Experience</div>
       <div class="names">Chef Al Green &amp; Cheyenne Green</div>
-      <p class="note" id="ednote">This first evening is spoken for. The guest list hears about the next one first.</p>
+      <p class="note" id="ednote">Edition 01 is a small first evening among friends. The next one opens to the guest list first.</p>
     </div>
   </div>
 </section>
@@ -225,6 +253,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
   <div class="links k">
     <a href="mailto:siani@thedock.life">siani@thedock.life</a>
     <a href="https://instagram.com/thedock.life" target="_blank" rel="noopener">@thedock.life</a>
+    <a href="/privacy">Privacy</a>
   </div>
   <div class="fine k">Dock · On the Chesapeake</div>
 </footer>
@@ -362,25 +391,35 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .08, rootMargin: '0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (el.parentElement.classList.contains('three') ? [...el.parentElement.children].indexOf(el) * .35 : 0) + 's'; io.observe(el); });
 
-  // ---- Edition 01 countdown, then a thank-you after the night ----
+  // ---- Edition 01 countdown: days and hours, then hours and minutes on the day ----
   (() => {
-    const {y,m,d} = nowParts(), today = Date.UTC(y, m-1, d), ed = Date.UTC(2026, 9, 29);
-    const days = Math.round((ed - today) / 864e5), c = document.getElementById('count'), note = document.getElementById('ednote');
-    if (days > 1) { c.textContent = 'In ' + days + ' days'; c.hidden = false; }
-    else if (days === 1) { c.textContent = 'Tomorrow evening'; c.hidden = false; }
-    else if (days === 0) { c.textContent = 'Tonight'; c.hidden = false; }
-    else { note.textContent = 'Edition 01 was October 29. Thank you to everyone who came to the water. The next evening is being planned now, and the guest list hears first.'; }
+    const c = document.getElementById('count'), note = document.getElementById('ednote');
+    const doors = Date.parse('2026-10-29T17:00:00-04:00'), end = Date.parse('2026-10-29T22:00:00-04:00');
+    const plural = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
+    function update() {
+      const now = Date.now(), ms = doors - now;
+      if (now >= end) { c.hidden = true; note.textContent = 'Edition 01 was October 29. Thank you to everyone who came to the water. The next evening is being planned now, and the guest list hears first.'; return; }
+      if (now >= doors) { c.textContent = 'Happening now'; c.hidden = false; return; }
+      const mins = Math.floor(ms / 6e4), d = Math.floor(mins / 1440), h = Math.floor(mins % 1440 / 60), m = mins % 60;
+      c.textContent = d >= 1 ? 'In ' + plural(d, 'day') + ', ' + plural(h, 'hour') : 'Doors in ' + (h ? plural(h, 'hour') + ', ' : '') + plural(m, 'minute');
+      c.hidden = false;
+    }
+    update(); setInterval(update, 30000);
   })();
 
   // ---- guest list ----
   const form = document.getElementById('form'), msg = document.getElementById('msg'), go = document.getElementById('go');
+  const textsWrap = document.getElementById('textsWrap'), otherWrap = document.getElementById('otherWrap'), otherBox = document.getElementById('otherBox');
+  form.phone.addEventListener('input', () => { textsWrap.hidden = !form.phone.value.trim(); });
+  otherBox.addEventListener('change', () => { otherWrap.hidden = !otherBox.checked; if (otherBox.checked) form.other.focus(); });
   const src = new URLSearchParams(location.search).get('src') || new URLSearchParams(location.search).get('utm_source') || (/instagram/i.test(document.referrer) ? 'instagram' : '');
   form.addEventListener('submit', e => {
     e.preventDefault(); msg.textContent = ''; msg.className = 'msg';
     const fd = new FormData(form);
-    const data = {firstName: fd.get('firstName').trim(), lastName: fd.get('lastName').trim(), email: fd.get('email').trim(), interests: fd.getAll('interests'), website: fd.get('website'), source: src};
+    const data = {firstName: fd.get('firstName').trim(), lastName: fd.get('lastName').trim(), email: fd.get('email').trim(), phone: fd.get('phone').trim(), zip: fd.get('zip').trim(), textsOk: fd.get('textsOk') === 'on', interests: fd.getAll('interests'), other: (fd.get('other') || '').trim(), comingWith: fd.getAll('comingWith'), website: fd.get('website'), source: src};
     if (!data.firstName) { msg.textContent = 'Add your first name so we know who to write to.'; msg.classList.add('err'); form.firstName.focus(); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) { msg.textContent = 'That email doesn\'t look complete.'; msg.classList.add('err'); form.email.focus(); return; }
+    if (data.phone && data.phone.replace(/\D/g, '').length < 10) { msg.textContent = 'Check the mobile number, or leave it blank.'; msg.classList.add('err'); form.phone.focus(); return; }
     go.disabled = true; go.textContent = 'Adding you';
     fetch('/api/join', {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify(data)})
       .then(r => r.ok ? r.json() : Promise.reject(r.status))

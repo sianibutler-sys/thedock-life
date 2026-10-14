@@ -7,10 +7,16 @@ const INTERESTS = [
   "Chef's suppers on the water",
   'Sunset sails',
   'Crab feasts and oyster roasts',
-  'Music by the water',
-  'Slow mornings on the dock',
+  'Live music by the water',
+  'Game nights on the dock',
+  'Sunrise yoga on the dock',
+  'Paddleboarding and kayaking',
+  'Learn to sail, crab or shuck',
   'Stories of the Chesapeake',
+  'Hosting my own celebration',
+  'Something else',
 ];
+const COMPANY = ['Just me', 'A date', 'Friends', 'Family', 'My team or company'];
 
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -38,6 +44,12 @@ export async function onRequestPost({ request, env }) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return json({ error: 'email required' }, 400);
   const interests = Array.isArray(data.interests) ? INTERESTS.filter((i) => data.interests.includes(i)) : [];
   const source = clean(data.source, 60).toLowerCase().replace(/[^a-z0-9_.-]/g, '');
+  const comingWith = Array.isArray(data.comingWith) ? COMPANY.filter((c) => data.comingWith.includes(c)) : [];
+  const other = interests.includes('Something else') ? clean(data.other, 500) : '';
+  const phone = clean(data.phone, 40);
+  if (phone && phone.replace(/\D/g, '').length < 10) return json({ error: 'phone incomplete' }, 400);
+  const textsOk = Boolean(phone) && data.textsOk === true;
+  const zip = clean(data.zip, 10).replace(/[^0-9-]/g, '');
 
   const auth = { authorization: `Bearer ${env.AIRTABLE_TOKEN.trim()}` };
   const formula = encodeURIComponent(`LOWER({Email})='${email.replace(/'/g, "\\'")}'`);
@@ -47,7 +59,13 @@ export async function onRequestPost({ request, env }) {
 
   if (existing) {
     const had = existing.fields.Interests || [];
-    const fields = { Interests: [...new Set([...had, ...interests])] };
+    const fields = {
+      Interests: [...new Set([...had, ...interests])],
+      'Coming with': [...new Set([...(existing.fields['Coming with'] || []), ...comingWith])],
+    };
+    if (other) fields['Something else'] = [existing.fields['Something else'], other].filter(Boolean).join('\n');
+    if (phone) { fields.Mobile = phone; fields['Texts OK'] = textsOk; }
+    if (zip) fields['ZIP code'] = zip;
     if (!existing.fields['First name']) fields['First name'] = first;
     if (!existing.fields['Last name'] && clean(data.lastName, 100)) fields['Last name'] = clean(data.lastName, 100);
     const saved = await fetch(`${API}/${existing.id}`, {
@@ -64,6 +82,11 @@ export async function onRequestPost({ request, env }) {
     'First name': first,
     'Last name': clean(data.lastName, 100),
     Interests: interests,
+    'Coming with': comingWith,
+    'Something else': other,
+    Mobile: phone,
+    'Texts OK': textsOk,
+    'ZIP code': zip,
     'Signed up at': new Date().toISOString(),
     Source: source,
   };
