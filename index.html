@@ -37,6 +37,16 @@ a{color:inherit}
 .glint{position:absolute;left:0;right:0;top:67%;height:33%;pointer-events:none;opacity:.6;
   background:repeating-linear-gradient(180deg,transparent 0 9px,rgba(255,255,255,.05) 9px 10px,transparent 10px 23px,rgba(255,255,255,.035) 23px 24px);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
 #ripples{position:absolute;left:0;right:0;top:67%;width:100%;height:33%;touch-action:pan-y}
+.intro{position:absolute;inset:0;z-index:1;background:var(--paper) url(/assets/paper.png);background-blend-mode:multiply;clip-path:inset(0 0 0 0);transition:clip-path 1.5s cubic-bezier(.5,0,.3,1);display:none}
+.intro .introname{position:absolute;left:0;right:0;top:calc(34% + var(--mw)*.235 + 18px);text-align:center;font-family:'Pinyon Script',cursive;font-size:clamp(46px,8vw,72px);line-height:1;color:var(--navy);opacity:0;transform:translateY(6px);transition:opacity 1s ease,transform 1s ease}
+.intro.named .introname{opacity:1;transform:none}
+.intro.gone{clip-path:inset(0 0 100% 0);pointer-events:none}
+.intro.gone .introname{opacity:0;transition-duration:.45s}
+.hero.opening .intro{display:block}
+.hero.opening .clock,.hero.opening .sun{opacity:0 !important}
+.clock{transition:opacity 1.6s ease;}
+.mark{z-index:2}
+.tag{z-index:2}
 .clock{position:absolute;top:max(20px,env(safe-area-inset-top));left:0;right:0;text-align:center;opacity:.8;padding:0 16px}
 @media (max-width:480px){.clock{font-size:10px;letter-spacing:.18em}.tag .sub{font-size:10.5px;letter-spacing:.2em}}
 .mark{position:absolute;left:50%;top:34%;width:var(--mw);transform:translate(-50%,-50%)}
@@ -135,6 +145,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
   <div class="sun" id="sun" aria-hidden="true"></div>
   <div class="glint" aria-hidden="true"></div>
   <canvas id="ripples" aria-hidden="true"></canvas>
+  <div class="intro" id="intro" aria-hidden="true"><div class="introname">The Dock Club</div></div>
   <div class="clock k" id="clock" aria-live="off"></div>
   <div class="mark" role="img" aria-label="The Dock wave">
     <svg viewBox="-2 0 274 128" xmlns="http://www.w3.org/2000/svg">
@@ -146,6 +157,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
         </mask>
       </defs>
       <image id="ink" href="/assets/web-stroke-navy.png" x="-2" y="0" width="274" height="128" mask="url(#draw)"/>
+      <image id="inkLight" href="/assets/web-stroke-cream.png" x="-2" y="0" width="274" height="128" mask="url(#draw)" style="opacity:0;transition:opacity 1.6s ease"/>
       <image class="dot" id="dot" href="/assets/web-dot.png" x="-2" y="0" width="274" height="128"/>
     </svg>
   </div>
@@ -311,7 +323,10 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
   const words = {night:'night water', dawn:'first light', day:'daylight', golden:'golden hour', sunset:'sundown', dusk:'blue hour'};
   const lum = h => { const [r,g,b] = hex(h); return (0.299*r + 0.587*g + 0.114*b) / 255; };
   const ink = document.getElementById('ink'), sun = document.getElementById('sun'), clock = document.getElementById('clock');
-  let waterDark = false;
+  let seen = false;
+  try { seen = sessionStorage.getItem('dockOpened') === '1'; sessionStorage.setItem('dockOpened', '1'); } catch (e) {}
+  let waterDark = false, isDark = false, intro = !reduce && !seen;
+  const inkLight = document.getElementById('inkLight');
   function paint() {
     const {y,m,d,h} = nowParts(), {rise, set} = sunTimes(y, m, d), {cols, phase} = palette(h, rise, set);
     root.style.setProperty('--sky-top', cols[0]); root.style.setProperty('--sky-bot', cols[1]);
@@ -319,7 +334,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
     const dark = lum(cols[0]) * .5 + lum(cols[1]) * .5 < .55;
     root.style.setProperty('--hero-text', dark ? '#FBF8F2' : '#14253F');
     hero.classList.toggle('night', dark);
-    ink.setAttribute('href', dark ? '/assets/web-stroke-cream.png' : '/assets/web-stroke-navy.png');
+    isDark = dark; if (!intro) inkLight.style.opacity = dark ? 1 : 0;
     waterDark = lum(cols[3]) < .45;
     // by day the wave's own dot is the sun; at night a moon crosses the sky above the mark
     const isDay = h > rise - 0.3 && h < set + 0.3;
@@ -336,26 +351,46 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
 
   // ---- the wave draws itself ----
   const p1 = document.getElementById('p1'), p2 = document.getElementById('p2'), dab = document.getElementById('dab'), dot = document.getElementById('dot');
+  // the opening: a blank page, the wave draws, the name appears, then the sky rises in behind it
+  const introEl = document.getElementById('intro');
+  if (intro) { hero.classList.add('opening'); document.documentElement.style.overflow = 'hidden'; }
+  let revealed = false;
+  function reveal() {
+    if (revealed) return; revealed = true; intro = false;
+    introEl.classList.add('gone');
+    document.documentElement.style.overflow = '';
+    setTimeout(() => { inkLight.style.opacity = isDark ? 1 : 0; hero.classList.add('ready'); }, 1300);
+    setTimeout(() => hero.classList.remove('opening'), 1700);
+    ['pointerdown','wheel','touchmove','keydown'].forEach(ev => removeEventListener(ev, reveal));
+  }
   function drawWave() {
     if (reduce) { dab.setAttribute('r', 9); [p1,p2].forEach(p => p.style.strokeDasharray = 'none'); dot.style.opacity = 1; hero.classList.add('ready'); return; }
     const L1 = p1.getTotalLength(), L2 = p2.getTotalLength();
     [[p1,L1],[p2,L2]].forEach(([p,L]) => { p.style.strokeDasharray = L + ' ' + L; p.style.strokeDashoffset = L; });
-    const ease = t => 1 - Math.pow(1 - t, 2.2);
+    const ease = t => 1 - Math.pow(1 - t, 2.2), k = intro ? 0.75 : 1;
     const steps = [
-      {dur: 260, fn: t => dab.setAttribute('r', 9 * ease(t))},
-      {dur: 1500, fn: t => p1.style.strokeDashoffset = L1 * (1 - ease(t))},
-      {dur: 120, fn: () => {}},
-      {dur: 1000, fn: t => p2.style.strokeDashoffset = L2 * (1 - ease(t))},
-      {dur: 650, fn: t => { const e = ease(t), s = 0.4 + 0.6*e + Math.sin(t*Math.PI)*0.12; dot.style.opacity = Math.min(1, t*2.5); dot.style.transform = `translateY(${(1-e)*-14}px) scale(${s})`; }}
+      {dur: 260*k, fn: t => dab.setAttribute('r', 9 * ease(t))},
+      {dur: 1500*k, fn: t => p1.style.strokeDashoffset = L1 * (1 - ease(t))},
+      {dur: 120*k, fn: () => {}},
+      {dur: 1000*k, fn: t => p2.style.strokeDashoffset = L2 * (1 - ease(t))},
+      {dur: 650*k, fn: t => { const e = ease(t), s = 0.4 + 0.6*e + Math.sin(t*Math.PI)*0.12; dot.style.opacity = Math.min(1, t*2.5); dot.style.transform = `translateY(${(1-e)*-14}px) scale(${s})`; }}
     ];
     let i = 0, start = null;
     function frame(ts) {
       if (start === null) start = ts;
-      const s = steps[i], t = Math.min(1, (ts - start) / s.dur); s.fn(t);
-      if (t >= 1) { i++; start = ts; if (i === 1) hero.classList.add('ready'); if (i >= steps.length) return; }
+      const st = steps[i], t = Math.min(1, (ts - start) / st.dur); st.fn(t);
+      if (t >= 1) {
+        i++; start = ts;
+        if (i === 1 && !intro) hero.classList.add('ready');
+        if (i >= steps.length) {
+          if (intro) { introEl.classList.add('named'); setTimeout(reveal, 1700); }
+          return;
+        }
+      }
       requestAnimationFrame(frame);
     }
-    setTimeout(() => requestAnimationFrame(frame), 350);
+    setTimeout(() => requestAnimationFrame(frame), intro ? 500 : 350);
+    if (intro) setTimeout(() => ['pointerdown','wheel','touchmove','keydown'].forEach(ev => addEventListener(ev, reveal, {passive: true})), 600);
   }
   const imgs = ['/assets/web-stroke-navy.png','/assets/web-stroke-cream.png','/assets/web-dot.png'].map(src => new Promise(r => { const im = new Image(); im.onload = im.onerror = r; im.src = src; }));
   Promise.all(imgs).then(drawWave);
