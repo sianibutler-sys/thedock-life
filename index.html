@@ -84,6 +84,13 @@ section{padding:clamp(72px,12vw,140px) 20px;text-align:center}
 .dab{display:block;width:9px;margin:30px auto 22px}
 .card .names{font-style:italic;font-size:22px;margin-top:6px}
 .card .note{margin-top:26px;font-size:20px;line-height:1.5;color:#24324A}
+.story .promise{font-style:italic;font-weight:500;font-size:clamp(28px,4.6vw,40px);line-height:1.25;margin:18px 0 34px}
+.storycard{display:block;text-align:left;text-decoration:none;color:inherit;background:#FFFDF8;border:1px solid rgba(20,37,63,.16);border-radius:6px;padding:clamp(22px,5vw,34px);box-shadow:0 18px 40px -30px rgba(20,37,63,.45);transition:transform .3s ease,box-shadow .3s ease}
+.storycard:hover{transform:translateY(-2px);box-shadow:0 22px 44px -28px rgba(20,37,63,.5)}
+.storycard .stag{display:block;color:#E8642C;font-size:11px}
+.storycard .t{display:block;font-weight:600;font-size:clamp(26px,4vw,32px);line-height:1.15;margin:12px 0 14px}
+.storycard .x{display:block;font-size:19px;line-height:1.6;color:#24324A}
+.storycard .go{display:inline-block;margin-top:20px;border-bottom:1px solid currentColor;padding-bottom:3px;font-size:11px}
 .story h2{font-weight:500;font-size:clamp(40px,7vw,64px);line-height:1.05;margin:18px 0 26px}
 .story .body{text-align:left}
 .story .more{margin-top:28px;font-style:italic;font-size:22px}
@@ -249,13 +256,18 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
 
 <img class="divider reveal" src="/assets/horizon.png" alt="" style="transform:scaleX(-1)">
 
-<section class="paper story" id="story">
+<section class="paper story" id="stories">
   <div class="wrap">
-    <div class="k reveal">The water brings people together</div>
-    <h2 class="reveal">Baltimore, 1866</h2>
-    <p class="body reveal">In 1865, white caulkers on the Baltimore docks struck until the shipyards fired their Black coworkers. Within months, Isaac Myers and a group of Black investors raised $10,000, leased a waterfront yard through a white agent, and opened a shipyard of their own. It soon employed 300 Black caulkers and ran for eighteen years.</p>
-    <p class="more reveal">One story from these waters. More are coming.</p>
-    <p class="reveal" style="margin-top:26px"><a class="cta k" style="opacity:1;margin:0" href="/stories/isaac-myers">Read the full story</a></p>
+    <div class="k reveal">Stories from these waters</div>
+    <h2 class="reveal promise">The Chesapeake has fed, carried, divided and joined the people on its shores. We tell those stories as they happened.</h2>
+    <a class="storycard reveal" href="/stories/isaac-myers">
+      <span class="k stag">Work and enterprise · Baltimore, 1866</span>
+      <span class="t">Isaac Myers and the shipyard Black Baltimore built</span>
+      <span class="x">Fells Point, 1865. As the war ended, the shipyards became a fight over who would get the work. White caulkers and carpenters, many of them Irish and German immigrants, struck until the yards fired their Black coworkers. Isaac Myers answered by building. He and a group of Black investors raised $10,000, leased a waterfront yard and opened their own. Within months it employed 300 caulkers, and in time it hired white workers too. It ran for eighteen years.</span>
+      <span class="k go">Read the story</span>
+    </a>
+    <p class="more reveal">More stories are coming: the Bay itself, the people who arrived on it, and the places where they gathered.</p>
+    <p class="sources k reveal"><a href="/stories/">All stories, and how we tell them</a></p>
   </div>
 </section>
 </main>
