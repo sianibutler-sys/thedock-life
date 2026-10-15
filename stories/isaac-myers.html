@@ -45,6 +45,29 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
 .end{margin-top:64px;text-align:center}
 .end .sc{font-family:'Pinyon Script',cursive;color:#E8642C;font-size:44px;line-height:1}
 .end a.btn{display:inline-block;margin-top:22px;text-decoration:none;color:#FBF8F2;background:#14253F;border-radius:999px;padding:16px 26px}
+.cn{font-family:'DM Mono',ui-monospace,monospace;font-size:.5em;font-weight:500;line-height:0;vertical-align:super;letter-spacing:.02em;white-space:nowrap}
+.cn a{display:inline-block;color:#C4521F;text-decoration:none;padding:6px 3px;margin:-6px -1px}
+.cn a:hover,.cn a[aria-expanded="true"]{color:#14253F;text-decoration:underline}
+.cn a:focus-visible{outline:2px solid #E8642C;outline-offset:1px;border-radius:2px}
+.cn .sep{color:#C4521F;opacity:.6}
+ol.sources{padding-left:30px}
+ol.sources li{scroll-margin-top:24px;border-radius:4px;transition:background .6s ease}
+ol.sources li::marker{font-family:'DM Mono',monospace;font-size:13px;color:#C4521F}
+ol.sources li:target,ol.sources li.hl{background:rgba(232,100,44,.12)}
+.srcback{display:inline-block;margin-left:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#C4521F}
+.pop{position:absolute;z-index:20;width:min(360px,calc(100vw - 32px));background:#FFFDF8;border:1px solid rgba(20,37,63,.18);border-radius:8px;box-shadow:0 22px 50px -24px rgba(20,37,63,.55);padding:18px 18px 16px;opacity:0;transform:translateY(4px);transition:opacity .18s ease,transform .18s ease}
+.pop.on{opacity:1;transform:none}
+.pop .ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.pop .pk{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C4521F}
+.pop .px{border:0;background:none;font-size:24px;line-height:1;color:#14253F;cursor:pointer;padding:2px 6px;margin:-6px -6px 0 0}
+.pop .pb{font-size:18px;line-height:1.5;color:#24324A}
+.pop .pb a{color:#14253F}
+.pop .pall{display:inline-block;margin-top:12px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#14253F}
+@media (max-width:640px){
+.pop{position:fixed;left:0!important;right:0;bottom:0;top:auto!important;width:auto;border-radius:14px 14px 0 0;padding:20px 20px calc(22px + env(safe-area-inset-bottom));transform:translateY(100%);box-shadow:0 -18px 40px -20px rgba(20,37,63,.45)}
+.pop.on{transform:none}
+.pop::before{content:"";display:block;width:40px;height:4px;border-radius:2px;background:rgba(20,37,63,.2);margin:-8px auto 12px}
+}
 </style>
 </head>
 <body>
@@ -64,30 +87,30 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
   </div>
 
   <h2>The trade</h2>
-  <p>Wooden ships leak. Caulkers kept them afloat, driving fiber into the seams of the hull and sealing it with hot pitch. In the shipyards of Fells Point before the Civil War, much of that work was done by Black men, free and enslaved, working side by side. Frederick Douglass learned the trade there while he was still enslaved. In 1838, Black caulkers formed the Caulkers Association, one of the first Black trade unions in the country, and used it to bargain for better pay.</p>
-  <p>Isaac Myers was born free in Baltimore in 1835. Maryland would not educate Black children in its public schools, so he was taught at a private day school run by the Rev. John Fortie. At 16 he was apprenticed to a Black master caulker. By 20 he was supervising the caulking of clipper ships.</p>
+  <p>Wooden ships leak. Caulkers kept them afloat, driving fiber into the seams of the hull and sealing it with hot pitch.&#8288;<sup class="cn"><a href="#src-11" data-src="11" aria-label="Source 11" aria-expanded="false">11</a></sup> In the shipyards of Fells Point before the Civil War, much of that work was done by Black men, free and enslaved, working side by side.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup> Frederick Douglass learned the trade there while he was still enslaved.&#8288;<sup class="cn"><a href="#src-11" data-src="11" aria-label="Source 11" aria-expanded="false">11</a><span class="sep">,</span><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a></sup> In 1838, Black caulkers formed the Caulkers Association, one of the first Black trade unions in the country, and used it to bargain for better pay.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a><span class="sep">,</span><a href="#src-12" data-src="12" aria-label="Source 12" aria-expanded="false">12</a></sup></p>
+  <p>Isaac Myers was born free in Baltimore in 1835. Maryland would not educate Black children in its public schools, so he was taught at a private day school run by the Rev. John Fortie. At 16 he was apprenticed to a Black master caulker. By 20 he was supervising the caulking of clipper ships.&#8288;<sup class="cn"><a href="#src-4" data-src="4" aria-label="Source 4" aria-expanded="false">4</a><span class="sep">,</span><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a></sup></p>
 
   <h2>Pushed out</h2>
-  <p>The pay that Black caulkers had won made them a target. In the years before the war, white workers attacked them in the yards, and some owners stopped hiring them. In October 1865, as the war ended, white caulkers backed by ship carpenters went on strike and refused to return until the yards fired Black caulkers and longshoremen. City officials and police sided with the strikers. The yards gave in.</p>
-  <p>Accounts of how many lost their work range from more than a hundred caulkers to more than a thousand dockworkers. Myers, who had spent the early 1860s in the grocery trade and returned to caulking, was among those shut out.</p>
+  <p>The pay that Black caulkers had won made them a target. In the years before the war, white workers attacked them in the yards, and some owners stopped hiring them.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup> In October 1865, as the war ended, white caulkers backed by ship carpenters went on strike and refused to return until the yards fired Black caulkers and longshoremen. City officials and police sided with the strikers. The yards gave in.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a><span class="sep">,</span><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a></sup></p>
+  <p>Accounts of how many lost their work range from more than a hundred caulkers to more than a thousand dockworkers.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a><span class="sep">,</span><a href="#src-10" data-src="10" aria-label="Source 10" aria-expanded="false">10</a></sup> Myers, who had spent the early 1860s in the grocery trade and returned to caulking, was among those shut out.&#8288;<sup class="cn"><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a><span class="sep">,</span><a href="#src-4" data-src="4" aria-label="Source 4" aria-expanded="false">4</a></sup></p>
 
   <h2>The yard</h2>
-  <p>Myers proposed an answer: if the yards would not hire Black workers, Black workers would own a yard. He, John W. Locks and about fifteen other men, many of them from nearby Black churches, organized the effort. They sold stock and raised $10,000 from Black residents of Baltimore and beyond. Frederick Douglass is reported to have been among the investors. They borrowed $30,000 more, on a mortgage from a ship captain.</p>
-  <p>Money alone did not open the gate. White property owners would not deal with them, so a white businessman, William Applegarth, negotiated the lease on a yard at Kennard's Wharf, at the foot of Philpot Street in Fells Point, and assigned it to them. On February 12, 1866, the company opened, first under the name of the John Smith Company. In 1868 it was chartered by the state as the Chesapeake Marine Railway and Dry Dock Company.</p>
-  <p>Within months it employed about 300 Black caulkers, paying around $3 a day, and won government contracts. In time it hired white workers too.</p>
+  <p>Myers proposed an answer: if the yards would not hire Black workers, Black workers would own a yard. He, John W. Locks and about fifteen other men, many of them from nearby Black churches, organized the effort.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-8" data-src="8" aria-label="Source 8" aria-expanded="false">8</a></sup> They sold stock and raised $10,000 from Black residents of Baltimore and beyond.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup> Frederick Douglass is reported to have been among the investors.&#8288;<sup class="cn"><a href="#src-10" data-src="10" aria-label="Source 10" aria-expanded="false">10</a><span class="sep">,</span><a href="#src-3" data-src="3" aria-label="Source 3" aria-expanded="false">3</a></sup> They borrowed $30,000 more, on a mortgage from a ship captain.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a></sup></p>
+  <p>Money alone did not open the gate. White property owners would not deal with them, so a white businessman, William Applegarth, negotiated the lease on a yard at Kennard's Wharf, at the foot of Philpot Street in Fells Point, and assigned it to them.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a></sup> On February 12, 1866, the company opened, first under the name of the John Smith Company. In 1868 it was chartered by the state as the Chesapeake Marine Railway and Dry Dock Company.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a></sup></p>
+  <p>Within months it employed about 300 Black caulkers, paying around $3 a day, and won government contracts. In time it hired white workers too.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup></p>
 
   <h2>From the yard to the national stage</h2>
-  <p>In 1868, Myers and his fellow workers organized the Colored Caulkers Trade Union Society and elected him president. The next year the National Labor Union, the country's first national labor federation, invited Black delegates to its August 1869 convention in Philadelphia, and nine were recognized. Myers addressed the convention.</p>
+  <p>In 1868, Myers and his fellow workers organized the Colored Caulkers Trade Union Society and elected him president. The next year the National Labor Union, the country's first national labor federation, invited Black delegates to its August 1869 convention in Philadelphia, and nine were recognized. Myers addressed the convention.&#8288;<sup class="cn"><a href="#src-6" data-src="6" aria-label="Source 6" aria-expanded="false">6</a><span class="sep">,</span><a href="#src-9" data-src="9" aria-label="Source 9" aria-expanded="false">9</a></sup></p>
   <blockquote>
-    <p>"I speak today for the colored men of the whole country... when I tell you that all they ask for themselves is a fair chance."</p>
+    <p>"I speak today for the colored men of the whole country... when I tell you that all they ask for themselves is a fair chance."&#8288;<sup class="cn"><a href="#src-6" data-src="6" aria-label="Source 6" aria-expanded="false">6</a><span class="sep">,</span><a href="#src-12" data-src="12" aria-label="Source 12" aria-expanded="false">12</a></sup></p>
     <cite class="k">Isaac Myers, National Labor Union convention, 1869</cite>
   </blockquote>
-  <p>The convention declared that it drew no color line. It left membership to local unions, and many of them kept Black workers out. That December, 214 delegates met in Washington, D.C., and founded the Colored National Labor Union. They elected Myers its first president.</p>
-  <p>The two federations split for good in 1870. At the National Labor Union's congress that August, white delegates pressed Black workers to leave the Republican Party for the new National Labor Reform Party. The resolution passed 60 to 5. All five Black delegates voted no and did not return. In January 1871, Frederick Douglass succeeded Myers as president of the Colored National Labor Union. Without allies in the wider labor movement, and hit by the depression of 1873, it faded within a few years.</p>
+  <p>The convention declared that it drew no color line. It left membership to local unions, and many of them kept Black workers out. That December, 214 delegates met in Washington, D.C., and founded the Colored National Labor Union. They elected Myers its first president.&#8288;<sup class="cn"><a href="#src-5" data-src="5" aria-label="Source 5" aria-expanded="false">5</a><span class="sep">,</span><a href="#src-9" data-src="9" aria-label="Source 9" aria-expanded="false">9</a></sup></p>
+  <p>The two federations split for good in 1870. At the National Labor Union's congress that August, white delegates pressed Black workers to leave the Republican Party for the new National Labor Reform Party. The resolution passed 60 to 5. All five Black delegates voted no and did not return. In January 1871, Frederick Douglass succeeded Myers as president of the Colored National Labor Union. Without allies in the wider labor movement, and hit by the depression of 1873, it faded within a few years.&#8288;<sup class="cn"><a href="#src-9" data-src="9" aria-label="Source 9" aria-expanded="false">9</a><span class="sep">,</span><a href="#src-5" data-src="5" aria-label="Source 5" aria-expanded="false">5</a></sup></p>
 
   <h2>The end of the yard</h2>
-  <p>The shipyard outlasted both federations. It closed in 1884, when its lease on the waterfront expired and was not renewed. The Maryland State Archives records the cause as a misunderstanding. By then, iron and steel were replacing wood in shipbuilding, and with it the work of caulking.</p>
-  <p>In the 1870s, Myers worked as a special agent for the Post Office Department. After running a coal yard in Baltimore, he was appointed a federal customs gauger in 1882. He organized the Maryland Colored State Industrial Fair Association, the Colored Business Men's Association of Baltimore and a building and loan association. He died in Baltimore on January 26, 1891, at 56. The Baltimore Sun reported that the crowd at his funeral was so large a path had to be opened through it.</p>
+  <p>The shipyard outlasted both federations. It closed in 1884, when its lease on the waterfront expired and was not renewed. The Maryland State Archives records the cause as a misunderstanding.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a></sup> By then, iron and steel were replacing wood in shipbuilding, and with it the work of caulking.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup></p>
+  <p>In the 1870s, Myers worked as a special agent for the Post Office Department. After running a coal yard in Baltimore, he was appointed a federal customs gauger in 1882. He organized the Maryland Colored State Industrial Fair Association, the Colored Business Men's Association of Baltimore and a building and loan association. He died in Baltimore on January 26, 1891, at 56. The Baltimore Sun reported that the crowd at his funeral was so large a path had to be opened through it.&#8288;<sup class="cn"><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a><span class="sep">,</span><a href="#src-4" data-src="4" aria-label="Source 4" aria-expanded="false">4</a></sup></p>
 
   <img class="divider" src="/assets/horizon.png" alt="">
 
@@ -95,8 +118,8 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
   <div class="now">
     <p>Black capital, labor and leadership built the yard. It still took a white agent's signature to get the land, and when the lease ended, so did the yard. Eighteen years of work, wages and contracts rested on a lease. At Dock we think about that every time we come to the water: who owns the waterfront shapes who gets to use it.</p>
     <p>Shut out, these men did two things at once. They built their own institutions: a company, a union, a federation. They also kept asking to be let into the larger ones. Myers stood before the largest labor body in the country and asked for a fair chance. That request is still being made.</p>
-    <p>Black workers remain a strong presence in organized labor. In 2025, Black workers in the United States were more likely to belong to a union than white, Asian or Hispanic workers: 11.4 percent, against 9.9 percent of white workers, according to the Bureau of Labor Statistics. (Its 2025 figures average eleven months, because October data were not collected during the federal shutdown.)</p>
-    <p>The site of the yard is now the Frederick Douglass–Isaac Myers Maritime Park, at 1417 Thames Street, run by the Living Classrooms Foundation. Anyone can stand on the water where they worked.</p>
+    <p>Black workers remain a strong presence in organized labor. In 2025, Black workers in the United States were more likely to belong to a union than white, Asian or Hispanic workers: 11.4 percent, against 9.9 percent of white workers, according to the Bureau of Labor Statistics. (Its 2025 figures average eleven months, because October data were not collected during the federal shutdown.)&#8288;<sup class="cn"><a href="#src-13" data-src="13" aria-label="Source 13" aria-expanded="false">13</a></sup></p>
+    <p>The site of the yard is now the Frederick Douglass–Isaac Myers Maritime Park, at 1417 Thames Street, run by the Living Classrooms Foundation.&#8288;<sup class="cn"><a href="#src-8" data-src="8" aria-label="Source 8" aria-expanded="false">8</a><span class="sep">,</span><a href="#src-3" data-src="3" aria-label="Source 3" aria-expanded="false">3</a></sup> Anyone can stand on the water where they worked.</p>
     <p>The water brings people together. It has also been used to keep people apart. We tell both, because both happened here.</p>
   </div>
 
@@ -119,21 +142,22 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
   </ul>
 
   <h2>Sources</h2>
-  <ul class="sources">
-    <li>Maryland State Archives, <a href="https://www.msa.maryland.gov/msa/stagser/s1259/121/6050/html/cmrddc.html" target="_blank" rel="noopener">"The Chesapeake Marine Railway and Dry Dock Company,"</a> Black Baltimore 1870–1920</li>
-    <li>Baltimore Heritage, <a href="https://baltimoreheritage.github.io/civil-rights-heritage/1831-1884/" target="_blank" rel="noopener">"1831–1884: Abolition and Emancipation,"</a> Baltimore's Civil Rights Heritage, citing Bettye C. Thomas, "A Nineteenth Century Black Operated Shipyard, 1866–1884," Journal of Negro History (1974), and Frank Towers, "Job Busting at Baltimore Shipyards," Journal of Southern History (2000)</li>
-    <li>Explore Baltimore Heritage, <a href="https://explore.baltimoreheritage.org/items/show/418" target="_blank" rel="noopener">"Frederick Douglass–Isaac Myers Maritime Park"</a></li>
-    <li>Camille Heung, <a href="https://blackpast.org/african-american-history/myers-isaac-1835-1891" target="_blank" rel="noopener">"Myers, Isaac (1835–1891),"</a> BlackPast</li>
-    <li><a href="https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/colored-national-labor-union" target="_blank" rel="noopener">"Colored National Labor Union,"</a> Dictionary of American History, via Encyclopedia.com</li>
-    <li>Philip S. Foner and Ronald L. Lewis, eds., <a href="https://temple.manifoldapp.org/read/the-black-worker-during-the-era-of-the-national-labor-union-volume-2/section/8f5d0f42-fc5e-419d-b7b0-90f4b192a23f" target="_blank" rel="noopener">The Black Worker, Volume 2</a>, Temple University Press</li>
-    <li><a href="https://en.wikipedia.org/wiki/Isaac_Myers" target="_blank" rel="noopener">"Isaac Myers"</a> and <a href="https://en.wikipedia.org/wiki/Chesapeake_Marine_Railway_and_Dry_Dock_Company" target="_blank" rel="noopener">"Chesapeake Marine Railway and Dry Dock Company,"</a> Wikipedia, for the founding investors and Myers's later career</li>
-    <li>Living Classrooms Foundation, <a href="https://livingclassrooms.org/programs/fdimmp/" target="_blank" rel="noopener">Frederick Douglass–Isaac Myers Maritime Park</a></li>
-    <li>"Colored National Labor Union," <a href="https://www.encyclopedia.com/history/dictionaries-thesauruses-pictures-and-press-releases/colored-national-labor-union" target="_blank" rel="noopener">St. James Encyclopedia of Labor History</a>, via Encyclopedia.com</li>
-    <li>Associated Press, <a href="https://www.nbcnews.com/id/wbna13919680" target="_blank" rel="noopener">"Baltimore park recreates first black shipyard,"</a> via NBC News (2006)</li>
-    <li>Baltimore Sun, <a href="https://www.baltimoresun.com/features/retro-baltimore/bs-fe-retro-fells-point-caulkers-houses-stabilization-frederick-douglass-20210923-i6tgrnideralhena4pryhigq6a-story.html" target="_blank" rel="noopener">"Preservationists are trying to save Fells Point homes that belonged to Black caulkers"</a> (2021)</li>
-    <li>AFL-CIO, <a href="https://aflcio.org/2019/2/21/black-history-month-labor-profiles-isaac-myers" target="_blank" rel="noopener">"Black History Month Labor Profiles: Isaac Myers"</a> (2019) and <a href="https://aflcio.org/2021/2/11/pathway-progress-baltimore-caulkers-take-charge-their-own-future" target="_blank" rel="noopener">"Pathway to Progress"</a> (2021); American Postal Workers Union, <a href="https://apwu.org/news/news-isaac-myers-pioneer-african-american-trade-union-movement/" target="_blank" rel="noopener">"Isaac Myers: Pioneer of the African-American Trade Union Movement"</a>; The Association of Union Constructors, <a href="https://tauc.org/isaac-myers-a-labor-leader-who-built-opportunity/" target="_blank" rel="noopener">"Isaac Myers: A Labor Leader Who Built Opportunity"</a> (2025). These are labor organizations and write from that point of view; we used them for details confirmed elsewhere.</li>
-    <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/news.release/archives/union2_02182026.htm" target="_blank" rel="noopener">"Union Members, 2025"</a> (February 18, 2026)</li>
-  </ul>
+  <p class="note">Each number in the text links to the source here that supports it.</p>
+  <ol class="sources">
+    <li id="src-1">Maryland State Archives, <a href="https://www.msa.maryland.gov/msa/stagser/s1259/121/6050/html/cmrddc.html" target="_blank" rel="noopener">"The Chesapeake Marine Railway and Dry Dock Company,"</a> Black Baltimore 1870–1920</li>
+    <li id="src-2">Baltimore Heritage, <a href="https://baltimoreheritage.github.io/civil-rights-heritage/1831-1884/" target="_blank" rel="noopener">"1831–1884: Abolition and Emancipation,"</a> Baltimore's Civil Rights Heritage, citing Bettye C. Thomas, "A Nineteenth Century Black Operated Shipyard, 1866–1884," Journal of Negro History (1974), and Frank Towers, "Job Busting at Baltimore Shipyards," Journal of Southern History (2000)</li>
+    <li id="src-3">Explore Baltimore Heritage, <a href="https://explore.baltimoreheritage.org/items/show/418" target="_blank" rel="noopener">"Frederick Douglass–Isaac Myers Maritime Park"</a></li>
+    <li id="src-4">Camille Heung, <a href="https://blackpast.org/african-american-history/myers-isaac-1835-1891" target="_blank" rel="noopener">"Myers, Isaac (1835–1891),"</a> BlackPast</li>
+    <li id="src-5"><a href="https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/colored-national-labor-union" target="_blank" rel="noopener">"Colored National Labor Union,"</a> Dictionary of American History, via Encyclopedia.com</li>
+    <li id="src-6">Philip S. Foner and Ronald L. Lewis, eds., <a href="https://temple.manifoldapp.org/read/the-black-worker-during-the-era-of-the-national-labor-union-volume-2/section/8f5d0f42-fc5e-419d-b7b0-90f4b192a23f" target="_blank" rel="noopener">The Black Worker, Volume 2</a>, Temple University Press</li>
+    <li id="src-7"><a href="https://en.wikipedia.org/wiki/Isaac_Myers" target="_blank" rel="noopener">"Isaac Myers"</a> and <a href="https://en.wikipedia.org/wiki/Chesapeake_Marine_Railway_and_Dry_Dock_Company" target="_blank" rel="noopener">"Chesapeake Marine Railway and Dry Dock Company,"</a> Wikipedia, for the founding investors and Myers's later career</li>
+    <li id="src-8">Living Classrooms Foundation, <a href="https://livingclassrooms.org/programs/fdimmp/" target="_blank" rel="noopener">Frederick Douglass–Isaac Myers Maritime Park</a></li>
+    <li id="src-9">"Colored National Labor Union," <a href="https://www.encyclopedia.com/history/dictionaries-thesauruses-pictures-and-press-releases/colored-national-labor-union" target="_blank" rel="noopener">St. James Encyclopedia of Labor History</a>, via Encyclopedia.com</li>
+    <li id="src-10">Associated Press, <a href="https://www.nbcnews.com/id/wbna13919680" target="_blank" rel="noopener">"Baltimore park recreates first black shipyard,"</a> via NBC News (2006)</li>
+    <li id="src-11">Baltimore Sun, <a href="https://www.baltimoresun.com/features/retro-baltimore/bs-fe-retro-fells-point-caulkers-houses-stabilization-frederick-douglass-20210923-i6tgrnideralhena4pryhigq6a-story.html" target="_blank" rel="noopener">"Preservationists are trying to save Fells Point homes that belonged to Black caulkers"</a> (2021)</li>
+    <li id="src-12">AFL-CIO, <a href="https://aflcio.org/2019/2/21/black-history-month-labor-profiles-isaac-myers" target="_blank" rel="noopener">"Black History Month Labor Profiles: Isaac Myers"</a> (2019) and <a href="https://aflcio.org/2021/2/11/pathway-progress-baltimore-caulkers-take-charge-their-own-future" target="_blank" rel="noopener">"Pathway to Progress"</a> (2021); American Postal Workers Union, <a href="https://apwu.org/news/news-isaac-myers-pioneer-african-american-trade-union-movement/" target="_blank" rel="noopener">"Isaac Myers: Pioneer of the African-American Trade Union Movement"</a>; The Association of Union Constructors, <a href="https://tauc.org/isaac-myers-a-labor-leader-who-built-opportunity/" target="_blank" rel="noopener">"Isaac Myers: A Labor Leader Who Built Opportunity"</a> (2025). These are labor organizations and write from that point of view; we used them for details confirmed elsewhere.</li>
+    <li id="src-13">U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/news.release/archives/union2_02182026.htm" target="_blank" rel="noopener">"Union Members, 2025"</a> (February 18, 2026)</li>
+  </ol>
 
   <div class="end">
     <div class="sc">More stories from these waters.</div>
@@ -141,5 +165,44 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
     <a class="btn k" href="/#join">Join the guest list</a>
   </div>
 </main>
+<script>
+(function(){
+  var list=document.querySelector('ol.sources'); if(!list) return;
+  var pop=document.createElement('div'); pop.className='pop'; pop.setAttribute('role','dialog'); pop.setAttribute('aria-modal','false'); pop.hidden=true;
+  document.body.appendChild(pop); var cur=null;
+  function close(){ if(!cur) return; cur.setAttribute('aria-expanded','false'); var c=cur; cur=null; pop.classList.remove('on'); setTimeout(function(){ if(!cur) pop.hidden=true; },200); c.focus({preventScroll:true}); }
+  function open(a){
+    var n=a.getAttribute('data-src'), li=document.getElementById('src-'+n); if(!li) return;
+    if(cur===a){ close(); return; } if(cur) cur.setAttribute('aria-expanded','false');
+    cur=a; a.setAttribute('aria-expanded','true');
+    var body=li.cloneNode(true); var b=body.querySelector('.srcback'); if(b) b.remove();
+    pop.innerHTML='<div class="ph"><span class="pk">Source '+n+'</span><button class="px" type="button" aria-label="Close">&times;</button></div><div class="pb"></div><a class="pall" href="#src-'+n+'">See it in the source list</a>';
+    pop.querySelector('.pb').innerHTML=body.innerHTML;
+    pop.querySelector('.px').onclick=close;
+    pop.querySelector('.pall').onclick=function(e){ e.preventDefault(); var t=cur; close(); jump(n,t); };
+    pop.hidden=false;
+    if(window.innerWidth>640){
+      var r=a.getBoundingClientRect(), w=pop.offsetWidth, x=r.left+window.scrollX+r.width/2-w/2;
+      x=Math.max(16+window.scrollX,Math.min(x,window.scrollX+document.documentElement.clientWidth-w-16));
+      pop.style.left=x+'px'; pop.style.top=(r.bottom+window.scrollY+10)+'px';
+    }
+    requestAnimationFrame(function(){ pop.classList.add('on'); });
+    pop.querySelector('.px').focus({preventScroll:true});
+  }
+  function jump(n,from){
+    var li=document.getElementById('src-'+n); var bk=li.querySelector('.srcback');
+    if(!bk){ bk=document.createElement('a'); bk.className='srcback'; bk.href='#'; bk.textContent='Back to the text'; li.appendChild(bk); }
+    bk.onclick=function(e){ e.preventDefault(); from.scrollIntoView({block:'center'}); from.focus({preventScroll:true}); };
+    li.classList.add('hl'); setTimeout(function(){ li.classList.remove('hl'); },2400);
+    li.scrollIntoView({block:'start',behavior:'smooth'});
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('.cn a');
+    if(a){ e.preventDefault(); open(a); return; }
+    if(cur&&!pop.contains(e.target)) close();
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>
