@@ -147,32 +147,7 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
 .kopen{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:rgba(20,37,63,.35);text-underline-offset:6px}
 .kopen:hover{text-decoration-color:#E8642C}
 .kmeet{display:inline-block;margin-top:14px;font-size:11px;color:#C4521F;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
-.kdlg{border:0;padding:0;margin:auto;width:min(880px,calc(100vw - 24px));max-height:calc(100dvh - 24px);background:#F6F1E8 url(/assets/paper.png);background-blend-mode:multiply;color:#14253F;border-radius:10px;box-shadow:0 40px 90px -30px rgba(10,20,36,.6)}
-.kdlg::backdrop{background:rgba(14,26,44,.55);backdrop-filter:blur(2px)}
-.kdlg[open]{animation:kin .28s ease}
-@keyframes kin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.kin{position:relative;padding:clamp(26px,5vw,44px) clamp(18px,4vw,40px) 34px;text-align:center}
-.kdlg h2{font-weight:500;font-size:clamp(30px,5vw,44px);line-height:1.1;margin:12px 0 28px}
-.kx{position:sticky;top:0;float:right;margin:-14px -10px 0 0;width:44px;height:44px;padding:0;display:flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:rgba(255,253,248,.9);font-size:28px;line-height:1;color:#14253F;cursor:pointer;z-index:2}
-.kx:focus-visible{outline:2px solid #E8642C}
-@media (max-width:640px){.kdlg{width:100vw;max-width:100vw;max-height:92dvh;margin:auto 0 0;border-radius:16px 16px 0 0}}
-.cooks{display:grid;grid-template-columns:1fr 1fr;gap:18px;text-align:left;align-items:start;clear:both}
-@media (max-width:720px){.cooks{grid-template-columns:1fr}}
-.cook{background:#FFFDF8;border:1px solid rgba(20,37,63,.14);border-radius:6px;padding:clamp(22px,4vw,30px);box-shadow:0 18px 40px -32px rgba(20,37,63,.45)}
 .cookimg{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:34% 22%;border-radius:4px;margin-bottom:20px;filter:grayscale(1)}
-.cook .role{color:#C4521F;font-size:11px;line-height:1.7}
-.cook h3{font-weight:600;font-size:clamp(26px,3.6vw,30px);line-height:1.15;margin:8px 0 12px}
-.cook .short{font-size:19px;line-height:1.6;color:#24324A}
-.cook details{margin-top:16px}
-.cook summary{cursor:pointer;list-style:none;display:inline-block;font-size:11px;border-bottom:1px solid currentColor;padding-bottom:3px}
-.cook summary::-webkit-details-marker{display:none}
-.cook details[open] summary{opacity:.6}
-.cook .full{margin-top:14px}
-.cook .full p{font-size:17.5px;line-height:1.6;color:#24324A}
-.cook .full p+p{margin-top:12px}
-.cook .ig{display:inline-block;margin-top:18px;font-size:11px;text-decoration:none;color:#14253F;border:1px solid rgba(20,37,63,.3);border-radius:999px;padding:9px 14px}
-.cook .ig:hover{border-color:#14253F}
-.kdlg .duo{margin-top:34px;font-style:italic;font-size:clamp(21px,2.6vw,24px);color:#24324A}
 </style>
 </head>
 <body>
@@ -277,8 +252,8 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
       <div class="count k" id="count" hidden></div>
       <img class="dab" src="/assets/dab.png" alt="">
       <div class="k" style="opacity:.75">With The Chef Al Experience</div>
-      <div class="names"><a class="kopen" href="#al" data-k="k-al">Chef Al Green</a> &amp; <a class="kopen" href="#cheyenne" data-k="k-cheyenne">Cheyenne Green</a></div>
-      <a class="kmeet k" href="#kitchen" data-k="k-al">Meet the chefs</a>
+      <div class="names"><a class="kopen" href="/kitchen#al">Chef Al Green</a> &amp; <a class="kopen" href="/kitchen#cheyenne">Cheyenne Green</a></div>
+      <a class="kmeet k" href="/kitchen">Meet the chefs</a>
       <p class="note" id="ednote">Edition 01 is a small first evening among friends. The next one opens to the guest list first.</p>
     </div>
   </div>
@@ -503,40 +478,6 @@ footer .fine{margin-top:30px;opacity:.55;font-size:11px}
       .then(() => { document.getElementById('join').classList.add('joined'); document.getElementById('done').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'center'}); })
       .catch(() => { msg.textContent = 'That didn\'t go through. Try again, or write to hello@thedock.life.'; msg.classList.add('err'); go.disabled = false; go.textContent = 'Add me to the list'; });
   });
-})();
-</script>
-<dialog class="kdlg" id="kitchen" aria-labelledby="kdlg-t">
-  <div class="kin">
-    <button class="kx" type="button" aria-label="Close">&times;</button>
-    <div class="k">Edition 01 · In the kitchen</div>
-    <h2 id="kdlg-t">The Chef Al Experience</h2>
-    <div class="cooks">
-      <article class="cook" id="k-al">
-        <div class="k role">Chef</div>
-        <h3>Chef Alexander “Al” Green</h3>
-        <p class="short">A private chef and culinary event specialist. He cooks multi-course private dinners, celebrations and corporate events, with bold flavors and careful presentation.</p>
-        <details><summary class="k">Read his full bio</summary><div class="full"><p>Chef Alexander “Al” Green is a distinguished private chef and culinary event specialist known for transforming memorable occasions into extraordinary dining experiences. With a passion for bold flavors, artistic presentation, and exceptional hospitality, Chef Al has built a reputation for creating culinary experiences that are as unforgettable as the people gathered around the table.</p><p>His impressive clientele includes Grammy-winning music producers, personalities from The Real Housewives, corporate professionals, and discerning hosts seeking something beyond the ordinary.</p><p>From intimate, multi-course private dinners and elegant celebrations to upscale corporate gatherings, Chef Al approaches every event with creativity, precision, and a commitment to excellence. His culinary style combines innovative flavor profiles, refined presentation, and unexpected touches that turn each course into an experience of its own.</p><p>Beyond the kitchen, Chef Al is celebrated for his engaging personality and genuine connection with his guests. He believes that exceptional dining is about more than what’s on the plate. It’s about the atmosphere, the conversation, and the memories created along the way.</p><p>Whether preparing an exclusive dinner for a handful of guests or orchestrating a sophisticated corporate event, Chef Al brings the same attention to detail, personal approach, and passion for hospitality to every occasion.</p><p>For Chef Al, great food is just the beginning. The experience is everything.</p></div></details>
-        <a class="ig k" href="https://www.instagram.com/chefdreamsofwater/" target="_blank" rel="noopener">@chefdreamsofwater</a>
-      </article>
-      <article class="cook" id="k-cheyenne">
-        <div class="k role">Sous chef and creative experience specialist</div>
-        <h3>Cheyenne Green</h3>
-        <p class="short">Cheyenne cooked her way through college alongside her father. Today she works beside him as sous chef, and brings cocktail pop-ups, event décor and an eye for detail to every evening.</p>
-        <details><summary class="k">Read her full bio</summary><div class="full"><p>For Cheyenne Green, hospitality is more than a passion—it’s a family tradition. Having cooked her way through college alongside her father, Chef Alexander “Al” Green, Cheyenne has grown into an essential part of the culinary team.</p><p>As Sous Chef, she brings fresh creativity, attention to detail, and a natural flair for hospitality to every event. Her talents extend beyond the kitchen, from crafting unique cocktail pop-up experiences to designing beautiful event décor and creating inviting atmospheres.</p><p>Blending culinary expertise with an eye for style and presentation, Cheyenne helps bring every detail of the Chef Al experience to life.</p></div></details>
-      </article>
-    </div>
-    <p class="duo">Father and daughter. One kitchen. Edition 01.</p>
-  </div>
-</dialog>
-<script>
-(function(){
-  var d=document.getElementById('kitchen'); if(!d||!d.showModal) return;
-  function open(id){ if(!d.open) d.showModal(); var el=document.getElementById(id||'k-al'); d.scrollTop=0; if(el&&id!=='k-al'&&window.innerWidth<=720) setTimeout(function(){ d.scrollTop=el.getBoundingClientRect().top-d.getBoundingClientRect().top-16; },60); }
-  document.querySelectorAll('.kopen,.kmeet').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); open(a.getAttribute('data-k')); }); });
-  d.querySelector('.kx').addEventListener('click',function(){ d.close(); });
-  d.addEventListener('click',function(e){ if(e.target===d) d.close(); });
-  d.addEventListener('close',function(){ if(/^#(kitchen|al|cheyenne)$/.test(location.hash)) try{history.replaceState(null,'',location.pathname+location.search)}catch(e){} });
-  var h=location.hash; if(h==='#kitchen'||h==='#al') setTimeout(function(){open('k-al')},400); if(h==='#cheyenne') setTimeout(function(){open('k-cheyenne')},400);
 })();
 </script>
 </body>
