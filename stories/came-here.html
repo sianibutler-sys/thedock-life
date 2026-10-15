@@ -45,6 +45,29 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
 .end{margin-top:64px;text-align:center}
 .end .sc{font-family:'Pinyon Script',cursive;color:#E8642C;font-size:44px;line-height:1}
 .end a.btn{display:inline-block;margin-top:22px;text-decoration:none;color:#FBF8F2;background:#14253F;border-radius:999px;padding:16px 26px}
+.cn{font-family:'DM Mono',ui-monospace,monospace;font-size:.5em;font-weight:500;line-height:0;vertical-align:super;letter-spacing:.02em;white-space:nowrap}
+.cn a{display:inline-block;color:#C4521F;text-decoration:none;padding:6px 3px;margin:-6px -1px}
+.cn a:hover,.cn a[aria-expanded="true"]{color:#14253F;text-decoration:underline}
+.cn a:focus-visible{outline:2px solid #E8642C;outline-offset:1px;border-radius:2px}
+.cn .sep{color:#C4521F;opacity:.6}
+ol.sources{padding-left:30px}
+ol.sources li{scroll-margin-top:24px;border-radius:4px;transition:background .6s ease}
+ol.sources li::marker{font-family:'DM Mono',monospace;font-size:13px;color:#C4521F}
+ol.sources li:target,ol.sources li.hl{background:rgba(232,100,44,.12)}
+.srcback{display:inline-block;margin-left:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#C4521F}
+.pop{position:absolute;z-index:20;width:min(360px,calc(100vw - 32px));background:#FFFDF8;border:1px solid rgba(20,37,63,.18);border-radius:8px;box-shadow:0 22px 50px -24px rgba(20,37,63,.55);padding:18px 18px 16px;opacity:0;transform:translateY(4px);transition:opacity .18s ease,transform .18s ease}
+.pop.on{opacity:1;transform:none}
+.pop .ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.pop .pk{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C4521F}
+.pop .px{border:0;background:none;font-size:24px;line-height:1;color:#14253F;cursor:pointer;padding:2px 6px;margin:-6px -6px 0 0}
+.pop .pb{font-size:18px;line-height:1.5;color:#24324A}
+.pop .pb a{color:#14253F}
+.pop .pall{display:inline-block;margin-top:12px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#14253F}
+@media (max-width:640px){
+.pop{position:fixed;left:0!important;right:0;bottom:0;top:auto!important;width:auto;border-radius:14px 14px 0 0;padding:20px 20px calc(22px + env(safe-area-inset-bottom));transform:translateY(100%);box-shadow:0 -18px 40px -20px rgba(20,37,63,.45)}
+.pop.on{transform:none}
+.pop::before{content:"";display:block;width:40px;height:4px;border-radius:2px;background:rgba(20,37,63,.2);margin:-8px auto 12px}
+}
 </style>
 </head>
 <body>
@@ -52,9 +75,9 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
   <a class="home k" href="/"><svg viewBox="-2 0 274 128" aria-hidden="true"><image href="/assets/web-stroke-navy.png" x="-2" y="0" width="274" height="128"/><image href="/assets/web-dot.png" x="-2" y="0" width="274" height="128"/></svg>Back to Dock</a>
 
   <header class="story">
-    <div class="k"><a href="/stories/" style="text-decoration:none">Stories from these waters</a> · People and arrivals · Locust Point, 1868–1914</div>
+    <div class="k"><a href="/stories/" style="text-decoration:none">Stories from these waters</a><br><span style="display:inline-block;margin-top:8px;color:#C4521F">History · People and arrivals · Locust Point, 1868–1914</span></div>
     <h1>Came here.</h1>
-    <p class="dek">Between 1868 and 1914, ships from Bremen tied up at a railroad pier on Locust Point, and more than a million people walked off them into a new country. Most boarded trains for the Midwest the same day. The ones who stayed built neighborhoods that still stand around the harbor.</p>
+    <p class="dek">Between 1868 and 1914, ships from Bremen tied up at a railroad pier on Locust Point, and more than a million people walked off them into a new country. Most rode on by train to the Midwest.&#8288;<sup class="cn"><a href="#src-6" data-src="6" aria-label="Source 6" aria-expanded="false">6</a><span class="sep">,</span><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup> The ones who stayed built neighborhoods that still stand around the harbor.</p>
   </header>
 
   <div class="facts">
@@ -64,35 +87,35 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
   </div>
 
   <h2>Before the pier</h2>
-  <p>Baltimore's ties to Bremen, the German port, went back to the late 1700s, when its merchants traded tobacco across the Atlantic. By the 1830s, ships that carried tobacco east carried emigrants west, and Fells Point was where most of them landed. Before the Civil War, by one historian's count, about four in five immigrants arriving in Baltimore were German. The Irish came next, many of them to dig the turnpikes and canals and lay track for the Baltimore and Ohio Railroad, and many more during the famine years of the 1840s and 1850s. By 1860, about a quarter of the city was foreign-born.</p>
-  <p>They did not arrive to a welcome. From the mid-1850s to 1860, Baltimore was governed by the American Party, known as the Know-Nothings, whose platform was hostility to immigrants and Catholics. Its street gangs, with names like the Plug Uglies and the Blood Tubs, beat voters who looked German or Irish, kidnapped men and forced them to vote again and again, and turned election days into battles. Estimates of the dead in the 1856 elections alone run from 17 to 30. Maryland was the only state that voted for the party's presidential candidate, Millard Fillmore, that year.</p>
-  <p>The same decade was violent on the docks. White workers drove Black caulkers out of shipyards in Fells Point, and at least one account ties the attacks to a nativist gang. Some owners stopped hiring Black caulkers. The people who worked this waterfront were competing for the same jobs, and the lines between them were drawn in more than one direction.</p>
+  <p>Baltimore's ties to Bremen, the German port, went back to the late 1700s, when its merchants traded tobacco across the Atlantic.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a></sup> By the 1830s, ships that carried tobacco east carried emigrants west, and Fells Point was where most of them landed.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup> Before the Civil War, by one historian's count, about four in five immigrants arriving in Baltimore were German.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup> The Irish came next, many of them to dig the turnpikes and canals and lay track for the Baltimore and Ohio Railroad, and many more during the famine years of the 1840s and 1850s.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a></sup> By 1860, about a quarter of the city was foreign-born.&#8288;<sup class="cn"><a href="#src-13" data-src="13" aria-label="Source 13" aria-expanded="false">13</a></sup></p>
+  <p>They did not arrive to a welcome. From the mid-1850s to 1860, Baltimore was governed by the American Party, known as the Know-Nothings, whose platform was hostility to immigrants and Catholics.&#8288;<sup class="cn"><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a><span class="sep">,</span><a href="#src-13" data-src="13" aria-label="Source 13" aria-expanded="false">13</a></sup> Its street gangs, with names like the Plug Uglies and the Blood Tubs, beat voters who looked German or Irish, kidnapped men and forced them to vote again and again, and turned election days into battles.&#8288;<sup class="cn"><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a></sup> Estimates of the dead in the 1856 elections alone run from 17 to 30.&#8288;<sup class="cn"><a href="#src-21" data-src="21" aria-label="Source 21" aria-expanded="false">21</a><span class="sep">,</span><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a></sup> Maryland was the only state that voted for the party's presidential candidate, Millard Fillmore, that year.&#8288;<sup class="cn"><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a></sup></p>
+  <p>The same decade was violent on the docks. White workers, backed at times by police, drove Black caulkers out of shipyards in Fells Point, and at least one account ties the attacks to a nativist gang.&#8288;<sup class="cn"><a href="#src-15" data-src="15" aria-label="Source 15" aria-expanded="false">15</a></sup> The people who worked this waterfront were competing for the same jobs, and the lines between them were drawn in more than one direction.</p>
 
   <h2>The deal</h2>
-  <p>In early 1867, the B&amp;O and the North German Lloyd steamship line of Bremen struck an agreement. The man who brokered it was Albert Schumacher, a Bremen-born Baltimore merchant who sat on the railroad's board. The railroad would build an immigration pier at Locust Point and connect it to its tracks. The Lloyd would send ships from Bremen. Immigrants could buy a single ticket that covered the crossing and the train west.</p>
-  <p>On March 23, 1868, the Lloyd's steamship Baltimore docked at Locust Point twenty days after leaving Bremen, by way of Southampton. The city turned out with a parade. The immigration station came to stand on B&amp;O Pier 9, on the harbor side of the peninsula, near the foot of today's Hull Street.</p>
-  <p>The design was simple. Passengers walked off the ship and onto waiting trains. Photographs from 1904 show families from the steamship Neckar on the pier with their bundles, sorted into pens by destination. By the 1880s the railroad had built an inspection station on the pier, and federal inspection was formalized in the 1890s.</p>
+  <p>In early 1867, the B&amp;O and the North German Lloyd steamship line of Bremen struck an agreement.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a><span class="sep">,</span><a href="#src-13" data-src="13" aria-label="Source 13" aria-expanded="false">13</a></sup> The man who brokered it was Albert Schumacher, a Bremen-born Baltimore merchant who sat on the railroad's board.&#8288;<sup class="cn"><a href="#src-13" data-src="13" aria-label="Source 13" aria-expanded="false">13</a></sup> The railroad would build an immigration pier at Locust Point and connect it to its tracks. The Lloyd would send ships from Bremen. Immigrants could buy a single ticket that covered the crossing and the train west.&#8288;<sup class="cn"><a href="#src-16" data-src="16" aria-label="Source 16" aria-expanded="false">16</a><span class="sep">,</span><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a></sup></p>
+  <p>On March 23, 1868, the Lloyd's steamship Baltimore docked at Locust Point twenty days after leaving Bremen, by way of Southampton. The city turned out with a parade.&#8288;<sup class="cn"><a href="#src-14" data-src="14" aria-label="Source 14" aria-expanded="false">14</a></sup> The immigration station came to stand on B&amp;O Pier 9, on the harbor side of the peninsula.&#8288;<sup class="cn"><a href="#src-5" data-src="5" aria-label="Source 5" aria-expanded="false">5</a><span class="sep">,</span><a href="#src-6" data-src="6" aria-label="Source 6" aria-expanded="false">6</a></sup></p>
+  <p>The design was simple. Passengers walked off the ship and onto waiting trains. Photographs from 1904 show families from the steamship Neckar on the pier with their bundles, sorted into pens by destination.&#8288;<sup class="cn"><a href="#src-5" data-src="5" aria-label="Source 5" aria-expanded="false">5</a></sup> By 1887 the railroad had built an inspection station on the pier and leased it to the federal government.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup></p>
 
   <h2>Who came</h2>
-  <p>Through the 1880s most arrivals were still German. Czech families from Bohemia and the first Poles followed. Jews from Central and Eastern Europe came through the Locust Point docks as well; Baltimore's Jewish population grew from about 10,000 in 1880 to about 24,000 in 1890. After about 1890 the ships carried more people from the Russian and Austro-Hungarian empires: Poles, Lithuanians, Czechs, Slovaks, Ukrainians, Hungarians and Russian Jews.</p>
-  <p>Most did not stay. The B&amp;O's trains carried most of the passengers on to the Ohio Valley and the Midwest. Those who stayed settled close to the work: Poles in Fells Point and Canton, Czechs in a corner of East Baltimore they called Little Bohemia, Lithuanians in West Baltimore, Russian Jews in East Baltimore, the Irish near the B&amp;O shops at Mount Clare.</p>
+  <p>Jews from Central and Eastern Europe came through the Locust Point docks as well; Baltimore's Jewish population grew from about 10,000 in 1880 to about 24,000 in 1890.&#8288;<sup class="cn"><a href="#src-8" data-src="8" aria-label="Source 8" aria-expanded="false">8</a></sup> After about 1890 the ships carried more people from the Russian and Austro-Hungarian empires: Poles, Lithuanians, Czechs, Slovaks, Ukrainians, Hungarians and Russian Jews.&#8288;<sup class="cn"><a href="#src-6" data-src="6" aria-label="Source 6" aria-expanded="false">6</a><span class="sep">,</span><a href="#src-13" data-src="13" aria-label="Source 13" aria-expanded="false">13</a></sup></p>
+  <p>Most did not stay. The B&amp;O's trains carried most of the passengers on to the Ohio Valley and the Midwest.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup> Those who stayed settled close to the work. Poles built a community in Fells Point and Canton, and Irish families lived near the B&amp;O shops at Mount Clare.&#8288;<sup class="cn"><a href="#src-13" data-src="13" aria-label="Source 13" aria-expanded="false">13</a></sup></p>
 
   <h2>The work</h2>
-  <p>The water and the railroad hired them. Irish families built and ran the B&amp;O; one of their homes on Lemmon Street is now the Irish Railroad Workers Museum. Locust Point's rowhouses filled with dockworkers and men from the factories that grew up around the B&amp;O terminals.</p>
-  <p>Baltimore became one of the country's leading canning centers, built on Chesapeake oysters and Maryland farms. Polish and Bohemian families shucked oysters and packed the cans. Many Polish families followed a yearly circuit: berry fields on Maryland farms in late spring, Baltimore canneries through the summer, country canneries in the fall, then oyster canneries on the Gulf Coast in winter. The photographer Lewis Hine documented their children at work in those fields and sheds.</p>
-  <p>In East Baltimore, 300 to 400 small garment shops ran on immigrant labor. By a 1901 state count, nine in ten sweatshop workers were Eastern European Jews, with Bohemian, Italian and Lithuanian workers among the rest. More than half of the city's garment workers were women and girls.</p>
-  <p>Newcomers who needed a bed could find one a short walk from the pier. In 1904, a German congregation, Christ Church, opened the Immigrant House at 1308 Beason Street, offering room and board, help finding work, and English lessons. By its pastor's count, it had taken in 3,710 guests by 1916.</p>
+  <p>The water and the railroad hired them. Irish families built and ran the B&amp;O; one of their homes on Lemmon Street is now the Irish Railroad Workers Museum.&#8288;<sup class="cn"><a href="#src-18" data-src="18" aria-label="Source 18" aria-expanded="false">18</a></sup> Locust Point's rowhouses filled with dockworkers and men from the factories that grew up around the B&amp;O terminals.</p>
+  <p>Baltimore became one of the country's leading canning centers, built on Chesapeake oysters and Maryland farms.&#8288;<sup class="cn"><a href="#src-17" data-src="17" aria-label="Source 17" aria-expanded="false">17</a><span class="sep">,</span><a href="#src-9" data-src="9" aria-label="Source 9" aria-expanded="false">9</a></sup> Polish and Bohemian families shucked oysters and packed the cans.&#8288;<sup class="cn"><a href="#src-9" data-src="9" aria-label="Source 9" aria-expanded="false">9</a><span class="sep">,</span><a href="#src-10" data-src="10" aria-label="Source 10" aria-expanded="false">10</a></sup> Many Polish families followed a yearly circuit: berry fields on Maryland farms in late spring, Baltimore canneries through the summer, country canneries in the fall, then oyster canneries on the Gulf Coast in winter.&#8288;<sup class="cn"><a href="#src-9" data-src="9" aria-label="Source 9" aria-expanded="false">9</a><span class="sep">,</span><a href="#src-10" data-src="10" aria-label="Source 10" aria-expanded="false">10</a><span class="sep">,</span><a href="#src-20" data-src="20" aria-label="Source 20" aria-expanded="false">20</a></sup> The photographer Lewis Hine documented their children at work in those fields and sheds.&#8288;<sup class="cn"><a href="#src-20" data-src="20" aria-label="Source 20" aria-expanded="false">20</a><span class="sep">,</span><a href="#src-10" data-src="10" aria-label="Source 10" aria-expanded="false">10</a></sup></p>
+  <p>In East Baltimore, 300 to 400 small garment shops ran on immigrant labor. By a 1901 state count, nine in ten sweatshop workers were Eastern European Jews. More than half of the city's garment workers were women and girls.&#8288;<sup class="cn"><a href="#src-11" data-src="11" aria-label="Source 11" aria-expanded="false">11</a></sup></p>
+  <p>Newcomers who needed a bed could find one a short walk from the pier. In 1904, a German congregation, Christ Church, opened the Immigrant House at 1308 Beason Street, offering room and board, help finding work, and English lessons. By its pastor's count, it had taken in 3,710 guests by 1916.&#8288;<sup class="cn"><a href="#src-6" data-src="6" aria-label="Source 6" aria-expanded="false">6</a></sup></p>
 
   <h2>The end of the pier</h2>
-  <p>The First World War ended it. When war broke out in 1914, the North German Lloyd's service stopped. On October 30, 1917, the B&amp;O piers at Locust Point caught fire, and the old immigration building on Pier 9 burned. Four men died, three of them crew of the British steamship Kerry Range. Germans and Austrians were arrested on suspicion of sabotage, but investigators later traced the fire to electrical wiring.</p>
+  <p>The First World War ended it. When war broke out in 1914, the North German Lloyd's service stopped.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a></sup> On October 30, 1917, the B&amp;O piers at Locust Point caught fire, and the old immigration building on Pier 9 burned. Four men died, three of them crew of the British steamship Kerry Range. Germans and Austrians were arrested on suspicion of sabotage, but investigators later traced the fire to electrical wiring.&#8288;<sup class="cn"><a href="#src-12" data-src="12" aria-label="Source 12" aria-expanded="false">12</a></sup></p>
 
   <img class="divider" src="/assets/horizon.png" alt="">
 
   <h2>Why this story, now</h2>
   <div class="now">
     <p>Families across the country can trace an ancestor to a ship that docked here. Many came through this one pier, then scattered west by rail.</p>
-    <p>The newcomers met the people already working this water. Black Marylanders had worked this waterfront for generations, many of them free long before emancipation in 1864. The Europeans who landed here joined them on the same docks and the same oyster boats. Sometimes they competed for that work, sometimes violently. Sometimes they did it side by side. Both happened on this water.</p>
-    <p>The pier is gone, but its story is kept close by. The Baltimore Immigration Museum, in the old Immigrant House at 1308 Beason Street, opened in 2016. A memorial garden to the arrivals stands near the old pier site at 900 Hull Street. Fort McHenry, which the ships passed on their way in, still watches the channel.</p>
+    <p>The newcomers met the people already working this water. Black Marylanders had worked this waterfront for generations, many of them free long before emancipation in 1864.&#8288;<sup class="cn"><a href="#src-22" data-src="22" aria-label="Source 22" aria-expanded="false">22</a></sup> The Europeans who landed here joined them on the same docks and the same oyster boats. Sometimes they competed for that work, sometimes violently. Sometimes they did it side by side. Both happened on this water.</p>
+    <p>The pier is gone, but its story is kept close by. The Baltimore Immigration Museum, in the old Immigrant House at 1308 Beason Street, opened in 2016.&#8288;<sup class="cn"><a href="#src-19" data-src="19" aria-label="Source 19" aria-expanded="false">19</a><span class="sep">,</span><a href="#src-6" data-src="6" aria-label="Source 6" aria-expanded="false">6</a></sup> A memorial garden to the arrivals stands at 900 Hull Street, on Locust Point.&#8288;<sup class="cn"><a href="#src-6" data-src="6" aria-label="Source 6" aria-expanded="false">6</a></sup> Fort McHenry, which the ships passed on their way in, still watches the channel.</p>
   </div>
 
   <h2>Where the accounts differ</h2>
@@ -103,7 +126,7 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
     <li>The yearly peak. A peak of about 40,000 a year is often repeated. Federal reports show about 56,000 in 1904 alone. We give no peak.</li>
     <li>When the deal was made. Accounts give January 1867, late 1866 or early 1867, or 1868, the year the pier opened. We say early 1867.</li>
     <li>Which pier. Accounts name Pier 8, Piers 8 and 9, or Piers 6 through 9. The 1904 photographs and the 1917 fire reports place the immigration building on Pier 9.</li>
-    <li>When inspection began. Sources give an inspection station leased to the federal government in 1887, federal inspection of every immigrant from 1891, and inspection on board as ships entered the Bay. We say the station was built in the 1880s and federal inspection formalized in the 1890s.</li>
+    <li>When inspection began. Sources give an inspection station leased to the federal government in 1887, federal inspection of every immigrant from 1891, and inspection on board as ships entered the Bay. We give 1887, the date the memorial and its marker give.</li>
     <li>The 1917 fire. It is often called mysterious. Reports at the time suspected sabotage; later findings blamed sparking wiring in piles of oakum. Accounts of the dead give three or four; a memorial record names four, among them a tally clerk, Michael J. Hand. We give four and name the ship.</li>
     <li>Know-Nothing violence. Counts of the dead in 1856 range from 17 to 30. We give the range.</li>
     <li>Who came through the pier. Italians and Greeks are often listed among Locust Point's arrivals, but most came to Baltimore by train from New York or Philadelphia. We leave them out of the pier's story and include them in the city's work.</li>
@@ -111,21 +134,31 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
   </ul>
 
   <h2>Sources</h2>
-  <ul class="sources">
-    <li>Nicholas Fessenden, <a href="https://loyolanotredamelib.org/php/report05/articles/pdfs/Report48-04-Fessenden-Norddeutscher-Lloyd-and-Baltimore.pdf" target="_blank" rel="noopener">"Norddeutscher Lloyd and Baltimore: A Transatlantic Partnership"</a> and <a href="https://loyolanotredamelib.org/php/report05/articles/pdfs/Report47-07-Immigration-Fessenden.pdf" target="_blank" rel="noopener">"Which Side Are You On? Baltimore's Immigrants and the Civil War,"</a> Report of the Society for the History of the Germans in Maryland</li>
-    <li>Baltimore Immigration Memorial, <a href="https://www.immigrationbaltimore.org/immigration-history.html" target="_blank" rel="noopener">immigration history</a>, and historical markers at Haubert Street (<a href="https://www.hmdb.org/m.asp?m=131173" target="_blank" rel="noopener">HMdb 131173</a>)</li>
-    <li>Sherry H. Olson, <a href="https://msa.maryland.gov/megafile/msa/speccol/sc5300/sc5339/000060/000000/000001/restricted/ecp-10-251/olson07.html" target="_blank" rel="noopener">Baltimore: The Building of an American City</a>, chapter 7 (Johns Hopkins University Press, 1980; Maryland State Archives)</li>
-    <li>U.S. Commissioner-General of Immigration, Annual Reports, arrivals by port (<a href="https://www.honorfirst.com/uploads/4/7/0/8/47087249/1904_annual_report_of_the_commissioner_of_immigration_to_the_secretary_of_labor.pdf" target="_blank" rel="noopener">1904</a>)</li>
-    <li>Maryland Center for History and Culture, <a href="https://www.mdhistory.org/digital-resource/2258" target="_blank" rel="noopener">photographs of the immigration station at Pier 9</a> (1904)</li>
-    <li>Explore Baltimore Heritage, <a href="https://explore.baltimoreheritage.org/items/show/559" target="_blank" rel="noopener">Immigrant House</a>, <a href="https://explore.baltimoreheritage.org/items/show/783" target="_blank" rel="noopener">the immigration memorial</a> and <a href="https://explore.baltimoreheritage.org/items/show/699" target="_blank" rel="noopener">Gibbs Preserving Company</a></li>
-    <li>Martin Ford, <a href="https://www.neh.gov/humanities/2008/mayjune/feature/gangs-baltimore" target="_blank" rel="noopener">"Gangs of Baltimore,"</a> Humanities (National Endowment for the Humanities, 2008)</li>
-    <li>Jewish Museum of Maryland, <a href="https://jewishmuseummd.org/?p=63050" target="_blank" rel="noopener">timeline of Jewish Baltimore</a></li>
-    <li>University of Baltimore, <a href="https://www.ubalt.edu/about/newsroom/ubaltnews-thomas-hollowak-book-polish-immigrants.cfm" target="_blank" rel="noopener">on Thomas Hollowak's Picking, Packing, &amp; Shucking</a></li>
-    <li>David Cecelski, <a href="https://davidcecelski.com/2024/08/23/a-forgotten-people-bohemian-oyster-shuckers-on-the-north-carolina-coast-1890-1914/" target="_blank" rel="noopener">"A Forgotten People: Bohemian Oyster Shuckers,"</a> and Library of Congress, <a href="https://www.loc.gov/item/2018675296/" target="_blank" rel="noopener">Lewis Hine photographs</a></li>
-    <li><a href="https://baltimorehistories.substack.com/p/garment-industry-sweatshops-in-baltimore" target="_blank" rel="noopener">Baltimore Histories</a>, on the garment sweatshops, citing Olson and Jo Ann Argersinger</li>
-    <li>The New Bernian, <a href="https://newspapers.digitalnc.org/lccn/sn96086033/1917-10-31/ed-1/seq-1/" target="_blank" rel="noopener">"Baltimore Scene of Costly Blaze"</a> (October 31, 1917), and <a href="https://ww1sacrifice.com/2015/05/13/ss-kerry-range/" target="_blank" rel="noopener">WW1 Sacrifice</a>, citing the Baltimore Sun and the Federal Reporter</li>
-    <li>Baltimore Magazine, <a href="https://www.baltimoremagazine.com/section/historypolitics/city-of-immigrants-the-people-who-built-baltimore/" target="_blank" rel="noopener">"City of Immigrants"</a> (2018); Baltimore National Heritage Area, <a href="https://www.explorebaltimore.org/city-history/a-city-of-immigrants" target="_blank" rel="noopener">"A City of Immigrants"</a></li>
-  </ul>
+  <p class="note">Each number in the text links to the source here that supports it.</p>
+  <ol class="sources">
+    <li id="src-1">Nicholas Fessenden, <a href="https://loyolanotredamelib.org/php/report05/articles/pdfs/Report48-04-Fessenden-Norddeutscher-Lloyd-and-Baltimore.pdf" target="_blank" rel="noopener">"Norddeutscher Lloyd and Baltimore: A Transatlantic Partnership"</a> and <a href="https://loyolanotredamelib.org/php/report05/articles/pdfs/Report47-07-Immigration-Fessenden.pdf" target="_blank" rel="noopener">"Which Side Are You On? Baltimore's Immigrants and the Civil War,"</a> Report of the Society for the History of the Germans in Maryland</li>
+    <li id="src-2">Baltimore Immigration Memorial, <a href="https://www.immigrationbaltimore.org/immigration-history.html" target="_blank" rel="noopener">immigration history</a>, and historical markers at Haubert Street (<a href="https://www.hmdb.org/m.asp?m=131173" target="_blank" rel="noopener">HMdb 131173</a>)</li>
+    <li id="src-3">Sherry H. Olson, <a href="https://msa.maryland.gov/megafile/msa/speccol/sc5300/sc5339/000060/000000/000001/restricted/ecp-10-251/olson07.html" target="_blank" rel="noopener">Baltimore: The Building of an American City</a>, chapter 7 (Johns Hopkins University Press, 1980; Maryland State Archives)</li>
+    <li id="src-4">U.S. Commissioner-General of Immigration, Annual Reports, arrivals by port (<a href="https://www.honorfirst.com/uploads/4/7/0/8/47087249/1904_annual_report_of_the_commissioner_of_immigration_to_the_secretary_of_labor.pdf" target="_blank" rel="noopener">1904</a>)</li>
+    <li id="src-5">Maryland Center for History and Culture, <a href="https://www.mdhistory.org/digital-resource/2258" target="_blank" rel="noopener">photographs of the immigration station at Pier 9</a> (1904)</li>
+    <li id="src-6">Explore Baltimore Heritage, <a href="https://explore.baltimoreheritage.org/items/show/559" target="_blank" rel="noopener">Immigrant House</a>, <a href="https://explore.baltimoreheritage.org/items/show/783" target="_blank" rel="noopener">the immigration memorial</a> and <a href="https://explore.baltimoreheritage.org/items/show/699" target="_blank" rel="noopener">Gibbs Preserving Company</a></li>
+    <li id="src-7">Martin Ford, <a href="https://www.neh.gov/humanities/2008/mayjune/feature/gangs-baltimore" target="_blank" rel="noopener">"Gangs of Baltimore,"</a> Humanities (National Endowment for the Humanities, 2008)</li>
+    <li id="src-8">Jewish Museum of Maryland, <a href="https://jewishmuseummd.org/?p=63050" target="_blank" rel="noopener">timeline of Jewish Baltimore</a></li>
+    <li id="src-9">University of Baltimore, <a href="https://www.ubalt.edu/about/newsroom/ubaltnews-thomas-hollowak-book-polish-immigrants.cfm" target="_blank" rel="noopener">on Thomas Hollowak's Picking, Packing, &amp; Shucking</a></li>
+    <li id="src-10">David Cecelski, <a href="https://davidcecelski.com/2024/08/23/a-forgotten-people-bohemian-oyster-shuckers-on-the-north-carolina-coast-1890-1914/" target="_blank" rel="noopener">"A Forgotten People: Bohemian Oyster Shuckers,"</a> and Library of Congress, <a href="https://www.loc.gov/item/2018675296/" target="_blank" rel="noopener">Lewis Hine photographs</a></li>
+    <li id="src-11"><a href="https://baltimorehistories.substack.com/p/garment-industry-sweatshops-in-baltimore" target="_blank" rel="noopener">Baltimore Histories</a>, on the garment sweatshops, citing Olson and Jo Ann Argersinger</li>
+    <li id="src-12">The New Bernian, <a href="https://newspapers.digitalnc.org/lccn/sn96086033/1917-10-31/ed-1/seq-1/" target="_blank" rel="noopener">"Baltimore Scene of Costly Blaze"</a> (October 31, 1917), and <a href="https://ww1sacrifice.com/2015/05/13/ss-kerry-range/" target="_blank" rel="noopener">WW1 Sacrifice</a>, citing the Baltimore Sun and the Federal Reporter</li>
+    <li id="src-13">Baltimore Magazine, <a href="https://www.baltimoremagazine.com/section/historypolitics/city-of-immigrants-the-people-who-built-baltimore/" target="_blank" rel="noopener">"City of Immigrants"</a> (2018); Baltimore National Heritage Area, <a href="https://www.explorebaltimore.org/city-history/a-city-of-immigrants" target="_blank" rel="noopener">"A City of Immigrants"</a></li>
+    <li id="src-14"><a href="https://en.wikipedia.org/wiki/SS_Baltimore" target="_blank" rel="noopener">SS Baltimore</a>, Wikipedia, citing the Baltimore Sun of March 24, 1868; and Baltimore Magazine, <a href="https://www.baltimoremagazine.com/2018/3/22/b-o-railroad-baltimore-immigration-celebrate-150th-anniversary-first-ship-locust-point" target="_blank" rel="noopener">on the 150th anniversary of the first ship</a> (2018)</li>
+    <li id="src-15">Chesapeake Bay Magazine, <a href="https://chesapeakebaymagazine.com/a-place-on-the-waterfront" target="_blank" rel="noopener">"A Place on the Waterfront"</a></li>
+    <li id="src-16">Baltimore Histories, <a href="https://baltimorehistories.substack.com/p/how-the-baltimore-and-ohio-railroad" target="_blank" rel="noopener">on the B&amp;O and the immigrant trade</a></li>
+    <li id="src-17">Bay Journal, <a href="https://www.bayjournal.com/travel/baltimore-museum-of-industry-shows-citys-can-do-spirit/article_42098c18-b721-56b1-afc9-75a85e7a74fd.html" target="_blank" rel="noopener">"Baltimore Museum of Industry shows city's can-do spirit"</a></li>
+    <li id="src-18">Explore Baltimore Heritage, <a href="https://explore.baltimoreheritage.org/items/show/35" target="_blank" rel="noopener">Irish Railroad Workers Museum</a></li>
+    <li id="src-19">SoBo Post, <a href="https://sobopost.org/2022/11/04/immigration-museum/" target="_blank" rel="noopener">on the Baltimore Immigration Museum</a> (2022)</li>
+    <li id="src-20">The Baltimore Banner, <a href="https://www.thebanner.com/culture/arts/lewis-hine-umbc-exhibit-PM5ODFZP2FAE3KZWI7ZPVT6UX4/" target="_blank" rel="noopener">on Lewis Hine's Maryland photographs</a></li>
+    <li id="src-21"><a href="https://en.wikipedia.org/wiki/Baltimore_Know-Nothing_riots_of_1856" target="_blank" rel="noopener">Baltimore Know-Nothing riots of 1856</a>, Wikipedia, citing Frank Towers and J. Thomas Scharf</li>
+    <li id="src-22">Maryland State Archives, <a href="https://msa.maryland.gov/msa/speccol/sc2600/sc2685/html/conv1864.html" target="_blank" rel="noopener">the Constitution of 1864</a></li>
+  </ol>
 
   <div class="end">
     <div class="sc">Before this: Brought here.</div>
@@ -133,5 +166,44 @@ blockquote cite{display:block;margin-top:12px;font-style:normal}
   </div>
 
 </main>
+<script>
+(function(){
+  var list=document.querySelector('ol.sources'); if(!list) return;
+  var pop=document.createElement('div'); pop.className='pop'; pop.setAttribute('role','dialog'); pop.setAttribute('aria-modal','false'); pop.hidden=true;
+  document.body.appendChild(pop); var cur=null;
+  function close(){ if(!cur) return; cur.setAttribute('aria-expanded','false'); var c=cur; cur=null; pop.classList.remove('on'); setTimeout(function(){ if(!cur) pop.hidden=true; },200); c.focus({preventScroll:true}); }
+  function open(a){
+    var n=a.getAttribute('data-src'), li=document.getElementById('src-'+n); if(!li) return;
+    if(cur===a){ close(); return; } if(cur) cur.setAttribute('aria-expanded','false');
+    cur=a; a.setAttribute('aria-expanded','true');
+    var body=li.cloneNode(true); var b=body.querySelector('.srcback'); if(b) b.remove();
+    pop.innerHTML='<div class="ph"><span class="pk">Source '+n+'</span><button class="px" type="button" aria-label="Close">&times;</button></div><div class="pb"></div><a class="pall" href="#src-'+n+'">See it in the source list</a>';
+    pop.querySelector('.pb').innerHTML=body.innerHTML;
+    pop.querySelector('.px').onclick=close;
+    pop.querySelector('.pall').onclick=function(e){ e.preventDefault(); var t=cur; close(); jump(n,t); };
+    pop.hidden=false;
+    if(window.innerWidth>640){
+      var r=a.getBoundingClientRect(), w=pop.offsetWidth, x=r.left+window.scrollX+r.width/2-w/2;
+      x=Math.max(16+window.scrollX,Math.min(x,window.scrollX+document.documentElement.clientWidth-w-16));
+      pop.style.left=x+'px'; pop.style.top=(r.bottom+window.scrollY+10)+'px';
+    }
+    requestAnimationFrame(function(){ pop.classList.add('on'); });
+    pop.querySelector('.px').focus({preventScroll:true});
+  }
+  function jump(n,from){
+    var li=document.getElementById('src-'+n); var bk=li.querySelector('.srcback');
+    if(!bk){ bk=document.createElement('a'); bk.className='srcback'; bk.href='#'; bk.textContent='Back to the text'; li.appendChild(bk); }
+    bk.onclick=function(e){ e.preventDefault(); from.scrollIntoView({block:'center'}); from.focus({preventScroll:true}); };
+    li.classList.add('hl'); setTimeout(function(){ li.classList.remove('hl'); },2400);
+    li.scrollIntoView({block:'start',behavior:'smooth'});
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('.cn a');
+    if(a){ e.preventDefault(); open(a); return; }
+    if(cur&&!pop.contains(e.target)) close();
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>
