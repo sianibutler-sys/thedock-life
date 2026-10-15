@@ -24,7 +24,24 @@ header{margin:56px 0 44px;text-align:center}
 h1{font-weight:500;font-size:clamp(44px,8vw,68px);line-height:1.04;margin:16px 0 18px}
 .promise{font-style:italic;font-size:clamp(22px,3vw,27px);line-height:1.45;color:#24324A;max-width:620px;margin:0 auto}
 .topics{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:26px}
-.topics span{border:1px solid rgba(20,37,63,.25);border-radius:999px;padding:7px 13px;font-size:10.5px}
+.topics button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:#14253F;background:transparent;border:1px solid rgba(20,37,63,.25);border-radius:999px;padding:9px 14px;font-size:10.5px;cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease}
+@media (max-width:560px){
+.topics{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin:26px -20px 0;padding:2px 20px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.topics::-webkit-scrollbar{display:none}
+.topics button{flex:0 0 auto;scroll-snap-align:start}
+}
+.topics button:hover{border-color:#14253F}
+.topics button[aria-pressed="true"]{background:#14253F;color:#FBF8F2;border-color:#14253F}
+.topics button:focus-visible{outline:2px solid #E8642C;outline-offset:2px}
+.grp{transition:opacity .35s ease}
+.grp+.grp{margin-top:0}
+.grp[data-topic="work"]+.grp .series{margin-top:44px}
+.grp.empty{display:none}
+.list.filtered .grp.empty.on{display:block}
+.list.filtered .grp.empty.on .soon{margin-top:0;padding:28px 0 8px}
+.list.filtered .grp:not(.on){display:none}
+.list.filtered .grp.on .series{margin-top:0}
+.list.fade .grp{opacity:0}
 .storycard{display:block;text-decoration:none;color:inherit;background:#FFFDF8;border:1px solid rgba(20,37,63,.16);border-radius:6px;padding:clamp(22px,5vw,34px);box-shadow:0 18px 40px -30px rgba(20,37,63,.45);transition:transform .3s ease,box-shadow .3s ease}
 .storycard:hover{transform:translateY(-2px);box-shadow:0 22px 44px -28px rgba(20,37,63,.5)}
 .storycard .tag{display:block;color:#E8642C;font-size:11px}
@@ -50,18 +67,28 @@ h2{font-weight:600;font-size:clamp(28px,4vw,34px);margin:48px 0 14px}
     <div class="k">Dock</div>
     <h1>Stories from these waters</h1>
     <p class="promise">The Chesapeake has fed, carried, divided and joined the people on its shores. We tell those stories as they happened.</p>
-    <div class="topics k"><span>Work and enterprise</span><span>The Bay itself</span><span>People and arrivals</span><span>Gathering places</span></div>
+    <div class="topics k" role="group" aria-label="Filter stories by topic">
+      <button type="button" data-f="all" aria-pressed="true">All stories</button>
+      <button type="button" data-f="work" aria-pressed="false">Work and enterprise</button>
+      <button type="button" data-f="bay" aria-pressed="false">The Bay itself</button>
+      <button type="button" data-f="people" aria-pressed="false">People and arrivals</button>
+      <button type="button" data-f="gathering" aria-pressed="false">Gathering places</button>
+    </div>
   </header>
 
+  <div class="list" id="list">
+  <div class="grp" data-topic="work">
   <a class="storycard" href="/stories/isaac-myers">
-    <span class="k tag">Work and enterprise · Baltimore, 1866</span>
+    <span class="k tag">Work and enterprise · <span style="white-space:nowrap">Baltimore, 1866</span></span>
     <span class="t">Isaac Myers and the shipyard Black Baltimore built</span>
     <span class="x">Fells Point, 1865. As the war ended, the shipyards became a fight over who would get the work. White caulkers and ship carpenters struck until the yards fired their Black coworkers. Isaac Myers answered by building. He and a group of Black investors raised $10,000, leased a waterfront yard and opened their own. Within months it employed 300 caulkers, and in time it hired white workers too. It ran for eighteen years.</span>
     <span class="k go">Read the story</span>
   </a>
+  </div>
+  <div class="grp" data-topic="people">
   <p class="series k">People and arrivals · a series in three parts</p>
   <a class="storycard" href="/stories/brought-here">
-    <span class="k tag">Part 1 · <span style="white-space:nowrap">The Chesapeake, 1619–1864</span></span>
+    <span class="k tag"><span style="white-space:nowrap">Part 1 · The Chesapeake,</span> <span style="white-space:nowrap">1619–1864</span></span>
     <span class="t">Brought here.</span>
     <span class="x">For more than two centuries, the Chesapeake was a route for the slave trade. Ships first carried captive Africans into its rivers. Then, after 1808, Baltimore's harbor sent thousands of enslaved Marylanders south to New Orleans.</span>
     <span class="k go">Read the story</span>
@@ -73,6 +100,10 @@ h2{font-weight:600;font-size:clamp(28px,4vw,34px);margin:48px 0 14px}
     <span class="k go">Read the story</span>
   </a>
   <p class="soon">Part 3, on the nations who were here first, is coming.</p>
+  </div>
+  <div class="grp empty" data-topic="bay"><p class="soon">The first story on the Bay itself is coming.</p></div>
+  <div class="grp empty" data-topic="gathering"><p class="soon">The first story on gathering places is coming.</p></div>
+  </div>
 
   <img class="divider" src="/assets/horizon.png" alt="">
 
@@ -86,5 +117,23 @@ h2{font-weight:600;font-size:clamp(28px,4vw,34px);margin:48px 0 14px}
 
   <div class="end"><a class="k" href="/#join">Join the guest list</a></div>
 </main>
+<script>
+(function(){
+  var list=document.getElementById('list'),btns=[].slice.call(document.querySelectorAll('.topics button')),grps=[].slice.call(list.querySelectorAll('.grp'));
+  function apply(f,push){
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.f===f?'true':'false')});
+    list.classList.add('fade');
+    setTimeout(function(){
+      list.classList.toggle('filtered',f!=='all');
+      grps.forEach(function(g){g.classList.toggle('on',g.dataset.topic===f)});
+      list.classList.remove('fade');
+    },180);
+    if(push){try{history.replaceState(null,'',f==='all'?location.pathname:'#'+f)}catch(e){}}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.f,true)})});
+  var h=location.hash.slice(1);
+  if(['work','bay','people','gathering'].indexOf(h)>-1)apply(h,false);
+})();
+</script>
 </body>
 </html>
