@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Already here. · Dock</title>
+<meta name="description" content="Before the first English ship reached the Chesapeake, tens of thousands of people lived on its rivers. Their nations are still here.">
+<meta property="og:title" content="Already here.">
+<meta property="og:description" content="Before the first English ship reached the Chesapeake, tens of thousands of people lived on its rivers. Their nations are still here.">
+<meta property="og:image" content="https://thedock.life/assets/share.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Mono:wght@500&family=Pinyon+Script&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#F6F1E8 url(/assets/paper.png);background-blend-mode:multiply;color:#14253F;font-family:'Cormorant Garamond',Georgia,serif;font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
+main{max-width:700px;margin:0 auto;padding:48px 20px 80px}
+.k{font-family:'DM Mono',ui-monospace,monospace;font-weight:500;text-transform:uppercase;letter-spacing:.26em;font-size:12px}
+a{color:inherit;text-underline-offset:3px}
+.home{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.home svg{width:64px;height:auto}
+header.story{margin:56px 0 40px;text-align:center}
+h1{font-weight:500;font-size:clamp(40px,7.5vw,64px);line-height:1.06;margin:18px 0 18px}
+.dek{font-style:italic;font-size:clamp(21px,2.6vw,24px);line-height:1.5;color:#24324A;max-width:600px;margin:0 auto}
+.byline{margin-top:22px;opacity:.7}
+h2{font-weight:600;font-size:clamp(26px,3.6vw,32px);line-height:1.2;margin:52px 0 14px}
+p,li{font-size:21px;line-height:1.65;color:#24324A}
+p+p{margin-top:16px}
+.facts{margin:26px 0 8px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.facts div{background:#FFFDF8;border:1px solid rgba(20,37,63,.16);border-radius:6px;padding:16px 12px;text-align:center}
+.facts b{display:block;font-weight:500;font-size:clamp(28px,5vw,38px);line-height:1;color:#14253F}
+.facts span{display:block;margin-top:8px;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;line-height:1.5}
+@media (max-width:520px){.facts{grid-template-columns:1fr 1fr}.facts div:last-child{grid-column:1/-1}}
+blockquote{margin:34px 0;padding:6px 0 6px 22px;border-left:2px solid #E8642C}
+blockquote p{font-style:italic;font-size:clamp(23px,3vw,27px);line-height:1.45;color:#14253F}
+blockquote cite{display:block;margin-top:12px;font-style:normal}
+.divider{display:block;width:calc(100% + 40px);margin:56px -20px 0;max-height:40px;object-fit:cover;opacity:.85}
+.now{margin-top:8px}
+.differ li{margin-bottom:12px}
+.differ{padding-left:22px;margin-top:10px}
+.sources{padding-left:22px;margin-top:10px}
+.sources li{font-size:18px;line-height:1.5;margin-bottom:10px}
+.note{font-size:18px;opacity:.85}
+.end{margin-top:64px;text-align:center}
+.end .sc{font-family:'Pinyon Script',cursive;color:#E8642C;font-size:44px;line-height:1}
+.end a.btn{display:inline-block;margin-top:22px;text-decoration:none;color:#FBF8F2;background:#14253F;border-radius:999px;padding:16px 26px}
+.cn{font-family:'DM Mono',ui-monospace,monospace;font-size:.5em;font-weight:500;line-height:0;vertical-align:super;letter-spacing:.02em;white-space:nowrap}
+.cn a{display:inline-block;color:#C4521F;text-decoration:none;padding:6px 3px;margin:-6px -1px}
+.cn a:hover,.cn a[aria-expanded="true"]{color:#14253F;text-decoration:underline}
+.cn a:focus-visible{outline:2px solid #E8642C;outline-offset:1px;border-radius:2px}
+.cn .sep{color:#C4521F;opacity:.6}
+ol.sources{padding-left:30px}
+ol.sources li{scroll-margin-top:24px;border-radius:4px;transition:background .6s ease}
+ol.sources li::marker{font-family:'DM Mono',monospace;font-size:13px;color:#C4521F}
+ol.sources li:target,ol.sources li.hl{background:rgba(232,100,44,.12)}
+.srcback{display:inline-block;margin-left:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#C4521F}
+.pop{position:absolute;z-index:20;width:min(360px,calc(100vw - 32px));background:#FFFDF8;border:1px solid rgba(20,37,63,.18);border-radius:8px;box-shadow:0 22px 50px -24px rgba(20,37,63,.55);padding:18px 18px 16px;opacity:0;transform:translateY(4px);transition:opacity .18s ease,transform .18s ease}
+.pop.on{opacity:1;transform:none}
+.pop .ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.pop .pk{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C4521F}
+.pop .px{border:0;background:none;font-size:24px;line-height:1;color:#14253F;cursor:pointer;padding:2px 6px;margin:-6px -6px 0 0}
+.pop .pb{font-size:18px;line-height:1.5;color:#24324A}
+.pop .pb a{color:#14253F}
+.pop .pall{display:inline-block;margin-top:12px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#14253F}
+@media (max-width:640px){
+.pop{position:fixed;left:0!important;right:0;bottom:0;top:auto!important;width:auto;border-radius:14px 14px 0 0;padding:20px 20px calc(22px + env(safe-area-inset-bottom));transform:translateY(100%);box-shadow:0 -18px 40px -20px rgba(20,37,63,.45)}
+.pop.on{transform:none}
+.pop::before{content:"";display:block;width:40px;height:4px;border-radius:2px;background:rgba(20,37,63,.2);margin:-8px auto 12px}
+}
+</style>
+</head>
+<body>
+<main>
+  <a class="home k" href="/"><svg viewBox="-2 0 274 128" aria-hidden="true"><image href="/assets/web-stroke-navy.png" x="-2" y="0" width="274" height="128"/><image href="/assets/web-dot.png" x="-2" y="0" width="274" height="128"/></svg>Back to Dock</a>
+
+  <header class="story">
+    <div class="k"><a href="/stories/" style="text-decoration:none">Stories from these waters</a><br><span style="display:inline-block;margin-top:8px;color:#C4521F">History · People and arrivals · The Chesapeake, before 1608 and today</span></div>
+    <h1>Already here.</h1>
+    <p class="dek">Before the first English ship reached the Chesapeake, tens of thousands of people lived on its rivers. They fished it, farmed its shores and named its waters. Many of their nations are still here.</p>
+  </header>
+
+  <div class="facts">
+    <div><b>30,000–50,000</b><span>people around the Bay when the English arrived</span></div>
+    <div><b>3,200 years</b><span>of oyster harvests in the Bay's shell mounds</span></div>
+    <div><b>3</b><span>tribes recognized by the State of Maryland</span></div>
+  </div>
+
+  <h2>The people of the rivers</h2>
+  <p>When the English arrived in 1607, tens of thousands of people lived around the Chesapeake. Estimates run from more than 30,000, by the historian James D. Rice, to about 50,000, by the National Park Service.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-3" data-src="3" aria-label="Source 3" aria-expanded="false">3</a></sup> They belonged to many nations. On the Virginia side, about 30 chiefdoms paid tribute to the paramount chief Powhatan.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-4" data-src="4" aria-label="Source 4" aria-expanded="false">4</a></sup> On the north bank of the Potomac, the Piscataway answered to a paramount chief, the tayac, whose seat was at Moyaone.&#8288;<sup class="cn"><a href="#src-11" data-src="11" aria-label="Source 11" aria-expanded="false">11</a><span class="sep">,</span><a href="#src-27" data-src="27" aria-label="Source 27" aria-expanded="false">27</a></sup></p>
+  <p>Across the Bay, the Nanticoke held much of the Eastern Shore. Their name for themselves is given as People of the Tidewater.&#8288;<sup class="cn"><a href="#src-30" data-src="30" aria-label="Source 30" aria-expanded="false">30</a><span class="sep">,</span><a href="#src-27" data-src="27" aria-label="Source 27" aria-expanded="false">27</a></sup> The Choptank, the Pocomoke, the Assateague and others lived nearby.&#8288;<sup class="cn"><a href="#src-29" data-src="29" aria-label="Source 29" aria-expanded="false">29</a><span class="sep">,</span><a href="#src-16" data-src="16" aria-label="Source 16" aria-expanded="false">16</a></sup> At the head of the Bay, the Susquehannock, who spoke an Iroquoian language, lived in palisaded towns along the Susquehanna.&#8288;<sup class="cn"><a href="#src-13" data-src="13" aria-label="Source 13" aria-expanded="false">13</a></sup></p>
+
+  <h2>Rivers as roads</h2>
+  <p>The rivers carried travel, trade and war. Dugout canoes moved people, fish and goods between towns.&#8288;<sup class="cn"><a href="#src-1" data-src="1" aria-label="Source 1" aria-expanded="false">1</a><span class="sep">,</span><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup> Fishermen built weirs, fences of stakes that ran out from shore for as much as 1,000 feet and steered fish into traps. Boys dove for oysters. When the oysters on a bed grew small, people moved to another bed.&#8288;<sup class="cn"><a href="#src-2" data-src="2" aria-label="Source 2" aria-expanded="false">2</a></sup></p>
+  <p>The shell mounds along the Bay hold the record. They show oyster harvests going back as far as 3,200 years, and the shells stay large across those thousands of years. Archaeologists read that as a harvest the reefs could sustain, though the lead researcher cautions it may not have been a deliberate plan.&#8288;<sup class="cn"><a href="#src-6" data-src="6" aria-label="Source 6" aria-expanded="false">6</a></sup></p>
+  <p>Many names on today's map come from these nations: Patapsco, Patuxent, Potomac, Choptank, Nanticoke, Pocomoke. Chesapeake itself comes from an Algonquian word that English colonists first wrote down in the 1580s. Its meaning is less settled than the signs suggest. "Great shellfish bay" is the popular reading. The Chesapeake Bay Program says historians are uncertain, and the linguist Blair Rudes said it may instead have meant "great water" or named a village at the Bay's mouth.&#8288;<sup class="cn"><a href="#src-7" data-src="7" aria-label="Source 7" aria-expanded="false">7</a></sup></p>
+
+  <h2>Up the Patapsco, 1608</h2>
+  <p>On June 12, 1608, John Smith's crew rowed into the Patapsco, the river that becomes Baltimore's harbor. They saw no one on shore.&#8288;<sup class="cn"><a href="#src-5" data-src="5" aria-label="Source 5" aria-expanded="false">5</a></sup> Historians think this stretch was a borderland between the Algonquian peoples to the south and the Susquehannock and Massawomeck to the north. No Native town at the Inner Harbor appears in the record.</p>
+  <p>Smith's map of the Bay, published in 1612, marks dozens of towns elsewhere on its shores. Much of what it shows came from Native guides.&#8288;<sup class="cn"><a href="#src-4" data-src="4" aria-label="Source 4" aria-expanded="false">4</a></sup></p>
+
+  <h2>The colony</h2>
+  <p>In 1634 the Ark and the Dove brought Maryland's first colonists up the Potomac. Leonard Calvert asked the Piscataway tayac for permission to settle. The tayac answered that "he would not bid him goe, neither would hee bid him stay, but that he might use his owne discretion."&#8288;<sup class="cn"><a href="#src-31" data-src="31" aria-label="Source 31" aria-expanded="false">31</a><span class="sep">,</span><a href="#src-8" data-src="8" aria-label="Source 8" aria-expanded="false">8</a></sup> The colonists settled at a Yaocomaco village that became St. Mary's City. The Jesuit Andrew White wrote that they bought "thirtie miles of ground" for "axes, hoes, cloth and hatchets."&#8288;<sup class="cn"><a href="#src-9" data-src="9" aria-label="Source 9" aria-expanded="false">9</a></sup> The English counted it a purchase. The Yaocomaco did not share that idea of owning land.&#8288;<sup class="cn"><a href="#src-10" data-src="10" aria-label="Source 10" aria-expanded="false">10</a></sup> Some left at once. The rest stayed through the harvest.&#8288;<sup class="cn"><a href="#src-10" data-src="10" aria-label="Source 10" aria-expanded="false">10</a><span class="sep">,</span><a href="#src-31" data-src="31" aria-label="Source 31" aria-expanded="false">31</a></sup></p>
+  <p>Over the next century, disease, war and treaties took most of the land. A 1666 treaty with the Piscataway recognized their rights to hunt, fish and crab, and set aside reservations. Later treaties were broken.&#8288;<sup class="cn"><a href="#src-11" data-src="11" aria-label="Source 11" aria-expanded="false">11</a><span class="sep">,</span><a href="#src-27" data-src="27" aria-label="Source 27" aria-expanded="false">27</a></sup> In 1669 the colony set aside land for the Choptank at Locust Neck. A state highway marker unveiled there in 2024 tells its story.&#8288;<sup class="cn"><a href="#src-15" data-src="15" aria-label="Source 15" aria-expanded="false">15</a></sup> In 1675, Maryland and Virginia militia besieged a Susquehannock fort on Piscataway Creek and killed five leaders who came out to talk. The violence that followed helped set off Bacon's Rebellion in Virginia.&#8288;<sup class="cn"><a href="#src-12" data-src="12" aria-label="Source 12" aria-expanded="false">12</a></sup></p>
+  <p>Many moved north. The Piscataway left southern Maryland for Virginia in 1697, and in 1699 settled on Heater's Island in the Potomac, where smallpox killed 57 people in 1704. By 1718 they were in Pennsylvania.&#8288;<sup class="cn"><a href="#src-14" data-src="14" aria-label="Source 14" aria-expanded="false">14</a></sup> Nanticoke families went north from the 1740s, and some settled with the Six Nations in what is now Ontario.&#8288;<sup class="cn"><a href="#src-27" data-src="27" aria-label="Source 27" aria-expanded="false">27</a></sup> Susquehannock descendants live today among the Seneca-Cayuga and the Six Nations.&#8288;<sup class="cn"><a href="#src-27" data-src="27" aria-label="Source 27" aria-expanded="false">27</a><span class="sep">,</span><a href="#src-13" data-src="13" aria-label="Source 13" aria-expanded="false">13</a></sup></p>
+  <p>Others stayed. Piscataway families kept to the land around Port Tobacco, farming and holding to St. Ignatius Church. The church recorded them as Indian. Census takers often recorded them as "mulatto" or "Negro."&#8288;<sup class="cn"><a href="#src-11" data-src="11" aria-label="Source 11" aria-expanded="false">11</a></sup></p>
+
+  <h2>Still here</h2>
+  <p>Maryland recognized the Piscataway Indian Nation and the Piscataway Conoy Tribe on January 9, 2012, the state's first recognized tribes. It recognized the Accohannock Indian Tribe on December 19, 2017.&#8288;<sup class="cn"><a href="#src-16" data-src="16" aria-label="Source 16" aria-expanded="false">16</a><span class="sep">,</span><a href="#src-17" data-src="17" aria-label="Source 17" aria-expanded="false">17</a><span class="sep">,</span><a href="#src-18" data-src="18" aria-label="Source 18" aria-expanded="false">18</a></sup> The orders grant no land or gaming rights, and they came after earlier requests had been denied.&#8288;<sup class="cn"><a href="#src-11" data-src="11" aria-label="Source 11" aria-expanded="false">11</a><span class="sep">,</span><a href="#src-17" data-src="17" aria-label="Source 17" aria-expanded="false">17</a></sup> No federally recognized tribe is based in Maryland. The Nause-Waiwash Band of Indians, the Assateague Peoples Tribe and the Pocomoke Indian Nation are among the communities that work with the state's Commission on Indian Affairs.&#8288;<sup class="cn"><a href="#src-16" data-src="16" aria-label="Source 16" aria-expanded="false">16</a></sup></p>
+  <p>In Delaware, the Nanticoke hold land near Millsboro, run a museum and host a powwow every year.&#8288;<sup class="cn"><a href="#src-19" data-src="19" aria-label="Source 19" aria-expanded="false">19</a></sup> Virginia has seven federally recognized tribes. Congress recognized six of them in 2018.&#8288;<sup class="cn"><a href="#src-28" data-src="28" aria-label="Source 28" aria-expanded="false">28</a></sup></p>
+
+  <h2>The Reservation on Baltimore Street</h2>
+  <p>Baltimore's largest Native community came by road. After the Second World War, Lumbee families left Robeson County, North Carolina, for work in Baltimore's factories and building trades.&#8288;<sup class="cn"><a href="#src-23" data-src="23" aria-label="Source 23" aria-expanded="false">23</a><span class="sep">,</span><a href="#src-20" data-src="20" aria-label="Source 20" aria-expanded="false">20</a><span class="sep">,</span><a href="#src-21" data-src="21" aria-label="Source 21" aria-expanded="false">21</a></sup> They settled in East Baltimore between Upper Fells Point and Washington Hill, a few blocks from the harbor. The heart of it was the 1700 block of East Baltimore Street, and the community called it the Reservation.&#8288;<sup class="cn"><a href="#src-20" data-src="20" aria-label="Source 20" aria-expanded="false">20</a><span class="sep">,</span><a href="#src-21" data-src="21" aria-label="Source 21" aria-expanded="false">21</a></sup></p>
+  <p>At its height the community numbered in the thousands. Estimates run from 2,000 to 7,000.&#8288;<sup class="cn"><a href="#src-21" data-src="21" aria-label="Source 21" aria-expanded="false">21</a><span class="sep">,</span><a href="#src-22" data-src="22" aria-label="Source 22" aria-expanded="false">22</a></sup> Urban renewal leveled most of that block in the early 1970s. By then, pushed by renewal and other pressures, many families had begun moving out to Dundalk, Essex and Middle River.&#8288;<sup class="cn"><a href="#src-20" data-src="20" aria-label="Source 20" aria-expanded="false">20</a><span class="sep">,</span><a href="#src-21" data-src="21" aria-label="Source 21" aria-expanded="false">21</a><span class="sep">,</span><a href="#src-22" data-src="22" aria-label="Source 22" aria-expanded="false">22</a></sup></p>
+  <p>In 1968, community members founded what became the Baltimore American Indian Center. It has stood at 113 South Broadway since 1972. In September 2025 it was added to the National Register of Historic Places.&#8288;<sup class="cn"><a href="#src-23" data-src="23" aria-label="Source 23" aria-expanded="false">23</a></sup> On December 18, 2025, 69 years after a 1956 law recognized them in name only, the Lumbee received full federal recognition.&#8288;<sup class="cn"><a href="#src-24" data-src="24" aria-label="Source 24" aria-expanded="false">24</a></sup></p>
+
+  <img class="divider" src="/assets/horizon.png" alt="">
+
+  <h2>Why this story, now</h2>
+  <div class="now">
+    <p>The first two parts of this series asked how people came to these waters. This part begins with the people who were already here.</p>
+    <p>The Bay's future is still being decided, and tribes are asking for a seat. In December 2025, at the National Aquarium in the Inner Harbor, the Chesapeake Executive Council directed its staff to work with federally recognized tribes on joining the Bay Program partnership. In June 2026 the decision was postponed. A resolution is due for consideration in December 2026.&#8288;<sup class="cn"><a href="#src-25" data-src="25" aria-label="Source 25" aria-expanded="false">25</a></sup> Maryland has no federally recognized tribe, so Maryland's nations are not part of that process.&#8288;<sup class="cn"><a href="#src-16" data-src="16" aria-label="Source 16" aria-expanded="false">16</a><span class="sep">,</span><a href="#src-25" data-src="25" aria-label="Source 25" aria-expanded="false">25</a></sup></p>
+    <p>In Virginia, the Nansemond Indian Nation plants oysters in a creek its people have fished for centuries.&#8288;<sup class="cn"><a href="#src-26" data-src="26" aria-label="Source 26" aria-expanded="false">26</a></sup></p>
+    <p>These waters were theirs first. Many of their nations are still here.</p>
+  </div>
+
+  <h2>Where the accounts differ</h2>
+  <p class="note">We checked this story against archival, scholarly, tribal, state and public-history sources. Where they disagree, here is what we found and what we wrote.</p>
+  <ul class="differ">
+    <li>How many people lived around the Bay. Estimates for 1607 run from more than 30,000 (James D. Rice) to about 50,000 (National Park Service). For Powhatan's chiefdom alone, figures run from about 8,000 to more than 22,000. We give the range for the Bay.</li>
+    <li>What "Chesapeake" means. "Great shellfish bay" is widely repeated. The Chesapeake Bay Program calls the meaning uncertain, and the linguist Blair Rudes proposed "great water" or a village at the Bay's mouth. We give the popular reading and say it is disputed. The meanings of Susquehanna, Choptank and Pocomoke are disputed too, so we give none.</li>
+    <li>The 1634 land. Some accounts say the colonists received about 30 acres. Andrew White's own account says "thirtie miles of ground." We quote White and leave the measure as he wrote it.</li>
+    <li>Who the Piscataway leader was in 1634. Sources disagree on whether Wannas was the Piscataway tayac or the Yaocomaco leader, so we do not name him.</li>
+    <li>Which tribes Maryland recognizes. Some accounts say the Pocomoke were recognized with the Accohannock in 2017. The Maryland Manual lists three recognized tribes, and the Pocomoke Indian Nation among the groups that work with the state. We follow the Manual.</li>
+    <li>The Susquehannock. Some references call them extinct as a tribe. Britannica and others record living descendants. We say they live today among other nations.</li>
+    <li>The Lumbee community's size. Counts at its height run from 2,000 to 7,000, and censuses of the time often classed Lumbee residents as white. We give the range.</li>
+    <li>The Bay Program decision. Recommendations on tribal partnership were due July 1, 2026, and the decision was postponed to December 2026. It covers federally recognized tribes only. We will update this story when it is made.</li>
+    <li>When the Yaocomaco left St. Mary's. A 1635 account says the rest agreed to leave at the end of harvest. A later account says they stayed a year. We say they stayed through the harvest.</li>
+    <li>The Nanticoke name. It is often given as "Tidewater People." We use "People of the Tidewater," the wording of the tribe's own museum.</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <p class="note">Each number in the text links to the source here that supports it.</p>
+  <ol class="sources">
+    <li id="src-1">Encyclopedia Virginia, <a href="https://encyclopediavirginia.org/entries/tsenacomoco-powhatan-paramount-chiefdom/" target="_blank" rel="noopener">"Tsenacomoco (Powhatan Paramount Chiefdom)"</a></li>
+    <li id="src-2">Encyclopedia Virginia, <a href="https://encyclopediavirginia.org/entries/fishing-and-shellfishing-by-early-virginia-indians/" target="_blank" rel="noopener">"Fishing and Shellfishing by Early Virginia Indians"</a></li>
+    <li id="src-3">National Park Service, <a href="https://www.nps.gov/articles/000/indigenous-life.htm" target="_blank" rel="noopener">"Indigenous Life"</a> and the <a href="https://www.nps.gov/cajo/planyourvisit/upload/2024_993-082-DOI-NPS-CAJO-Unigrid-508-2.pdf" target="_blank" rel="noopener">Captain John Smith Chesapeake National Historic Trail brochure</a></li>
+    <li id="src-4">National Park Service, <a href="https://www.nps.gov/articles/000/smith-map-of-virginia.htm" target="_blank" rel="noopener">"John Smith's Map of Virginia"</a></li>
+    <li id="src-5">NOAA Chesapeake Bay Interpretive Buoy System, <a href="https://buoybay.noaa.gov/sites/default/files/files/sn_js_history_text.pdf" target="_blank" rel="noopener">Patapsco history text</a>, and Chesapeake Conservancy, <a href="https://archive.chesapeakeconservancy.org/wp-content/uploads/2018/06/2018-Captain-John-Smith-Chesapeake-National-Historic-Trail-Middle-Branch-Paddle-Guide-1.pdf" target="_blank" rel="noopener">Middle Branch paddle guide</a> (2018)</li>
+    <li id="src-6">Hakai Magazine, <a href="https://hakaimagazine.com/news/in-the-chesapeake-bay-shell-mounds-show-a-long-history-of-sustainable-oyster-harvests/" target="_blank" rel="noopener">"In the Chesapeake Bay, Shell Mounds Show a Long History of Sustainable Oyster Harvests"</a> (2018)</li>
+    <li id="src-7">Chesapeake Bay Program, <a href="https://chesapeakebay.net/discover/faq/category/education" target="_blank" rel="noopener">frequently asked questions</a>, and the Washington Post, <a href="https://www.washingtonpost.com/wp-dyn/content/article/2006/12/11/AR2006121101474_2.html" target="_blank" rel="noopener">on the linguist Blair Rudes</a> (2006)</li>
+    <li id="src-8">Maryland State Archives, <a href="https://msa.maryland.gov/megafile/msa/speccol/sc3500/sc3520/000100/000198/html/lcalvbio.html" target="_blank" rel="noopener">Leonard Calvert biography</a></li>
+    <li id="src-9">Andrew White, <a href="https://msa.maryland.gov/megafile/msa/speccol/sc2900/sc2908/000001/000552/html/am552--20.html" target="_blank" rel="noopener">account of the voyage to Maryland</a>, Archives of Maryland, volume 552</li>
+    <li id="src-10">Clio, <a href="https://theclio.com/entry/141549" target="_blank" rel="noopener">St. Mary's City and the Yaocomaco</a>, citing Rebecca Seib and Helen Rountree, Indians of Southern Maryland (2014)</li>
+    <li id="src-11">Baltimore Magazine, <a href="https://www.baltimoremagazine.com/section/historypolitics/indigenous-piscataway-tribe-maryland-history/" target="_blank" rel="noopener">on the Piscataway</a> (2025)</li>
+    <li id="src-12">Jefferson Patterson Park and Museum, <a href="https://www.colonialencounters.org/SiteSummaries/SusquehannockFortSummary.aspx" target="_blank" rel="noopener">Susquehannock Fort site summary</a>, and Encyclopedia Virginia, <a href="https://encyclopediavirginia.org/entries/bacons-rebellion-1676-1677/" target="_blank" rel="noopener">"Bacon's Rebellion"</a></li>
+    <li id="src-13">Britannica, <a href="https://www.britannica.com/topic/Susquehannock" target="_blank" rel="noopener">"Susquehannock"</a></li>
+    <li id="src-14">Maryland Historical Trust, <a href="https://apps.jefpat.maryland.gov/diagnostic/SmallFinds/Site%20Summaries/18FR72HeatersIsland.htm" target="_blank" rel="noopener">Heater's Island site summary</a></li>
+    <li id="src-15">Maryland Matters, <a href="https://marylandmatters.org/2024/07/24/highway-marker-a-milepost-in-telling-story-of-nause-waiwash-people/" target="_blank" rel="noopener">"Highway marker a milepost in telling story of Nause-Waiwash people"</a> (2024)</li>
+    <li id="src-16">Maryland Manual, <a href="https://www.msa.maryland.gov/msa/mdmanual/01glance/native/html/00list.html" target="_blank" rel="noopener">Native American tribes and groups in Maryland</a></li>
+    <li id="src-17">State of Maryland, Executive Orders <a href="https://dsd.maryland.gov/executiveorders/Pages/01.01.2012.01.aspx" target="_blank" rel="noopener">01.01.2012.01</a> and <a href="https://dsd.maryland.gov/executiveorders/Pages/01.01.2012.02.aspx" target="_blank" rel="noopener">01.01.2012.02</a> (2012)</li>
+    <li id="src-18">State of Maryland, <a href="https://dsd.maryland.gov/executiveorders/Pages/01.01.2017.31.aspx" target="_blank" rel="noopener">Executive Order 01.01.2017.31</a> (2017)</li>
+    <li id="src-19">Delaware Department of Natural Resources and Environmental Control, <a href="https://dnrec.delaware.gov/outdoor-delaware/remembering-delawares-original-inhabitants-how-dnrec-preserves-and-promotes-indigenous-heritage" target="_blank" rel="noopener">"Remembering Delaware's original inhabitants"</a></li>
+    <li id="src-20">Smithsonian Magazine, <a href="https://www.smithsonianmag.com/smithsonian-institution/native-american-community-baltimore-reclaims-its-history-180975948/" target="_blank" rel="noopener">"The Native American Community in Baltimore Reclaims Its History"</a> (2020)</li>
+    <li id="src-21">National Museum of the American Indian, <a href="https://www.americanindianmagazine.org/story/touring-Baltimore-American-Indian-reservation" target="_blank" rel="noopener">American Indian magazine</a> (2022)</li>
+    <li id="src-22">Baltimore Magazine, <a href="https://www.baltimoremagazine.com/section/historypolitics/baltimore-lumbee-indians-upper-fells-point-claim-their-history/" target="_blank" rel="noopener">on the Lumbee of Upper Fells Point</a> (2022)</li>
+    <li id="src-23">Maryland Historical Trust, <a href="https://apps.mht.maryland.gov/nr/NRDetail.aspx?NRID=1761" target="_blank" rel="noopener">National Register record for the Baltimore American Indian Center</a>, including the Lumbee migration from Robeson County, and Explore Baltimore Heritage, <a href="https://explore.baltimoreheritage.org/items/show/762" target="_blank" rel="noopener">Baltimore American Indian Center</a></li>
+    <li id="src-24">The Robesonian, <a href="https://www.robesonian.com/news/336217/trump-signs-ndaa-officially-granting-lumbee-full-federal-recognition" target="_blank" rel="noopener">on Lumbee federal recognition</a>, and Port City Daily, <a href="https://portcitydaily.com/local-news/2025/12/17/with-trumps-signature-ncs-lumbee-tribe-will-receive-full-federal-recognition/" target="_blank" rel="noopener">on the signing</a> (2025)</li>
+    <li id="src-25">Chesapeake Bay Program, <a href="https://www.chesapeakebay.net/what/publications/chesapeake-executive-council-charge-to-the-principals-staff-committee-tribes-as-a-formal-and-enduring-partner-in-the-chesapeake-bay-program" target="_blank" rel="noopener">Executive Council charge on tribes as partners</a> (2025), and Chesapeake Bay Foundation, <a href="https://www.cbf.org/news/panel-delays-decision-on-tribal-recognition-in-chesapeake-bay-agreement/" target="_blank" rel="noopener">on the 2026 delay</a></li>
+    <li id="src-26">Chesapeake Bay Program, <a href="https://chesapeakebay.net/news/blog/nansemond-indian-nation-continues-its-legacy-of-stewardship-with-9-000-oyster-drop" target="_blank" rel="noopener">on the Nansemond Indian Nation's oyster planting</a> (2024)</li>
+    <li id="src-27">Wikipedia entries on the <a href="https://en.wikipedia.org/wiki/Piscataway_people" target="_blank" rel="noopener">Piscataway</a>, the <a href="https://en.wikipedia.org/wiki/Yaocomico" target="_blank" rel="noopener">Yaocomico</a>, the <a href="https://en.wikipedia.org/wiki/Nanticoke_people" target="_blank" rel="noopener">Nanticoke</a> and the <a href="https://en.wikipedia.org/wiki/Susquehannock" target="_blank" rel="noopener">Susquehannock</a>, used for details confirmed in the scholarship they cite</li>
+    <li id="src-28">Office of Rep. Rob Wittman, <a href="https://wittman.house.gov/newsroom/press-releases/president-signs-virginia-tribes-recognition-bill-authored-by-wittman-into-law" target="_blank" rel="noopener">on the Virginia tribes recognition act</a> (2018), and Virginia Places, <a href="https://virginiaplaces.org/nativeamerican/recognition.html" target="_blank" rel="noopener">on federal recognition of Virginia tribes</a></li>
+    <li id="src-29">Chesapeake Bay Foundation, <a href="https://www.cbf.org/stories/the-original-inhabitants-of-our-land/" target="_blank" rel="noopener">"The Original Inhabitants of Our Land"</a></li>
+    <li id="src-30">Chesapeake Bay Program, <a href="https://www.chesapeakebay.net/news/blog/park-delaware-honors-people-tidewater" target="_blank" rel="noopener">"Park in Delaware honors the people of the tidewater"</a></li>
+    <li id="src-31">A Relation of Maryland (1635), <a href="https://distantreader.org/stacks/earlyprint/txt/A07165.txt" target="_blank" rel="noopener">full text via EarlyPrint</a></li>
+  </ol>
+
+  <div class="end">
+    <div class="sc">Before this: Came here.</div>
+    <a class="btn k" href="/stories/came-here">Read the story</a>
+    <p style="margin-top:18px"><a href="/stories/brought-here">Part 1: Brought here.</a></p>
+  </div>
+
+</main>
+<script>
+(function(){
+  var list=document.querySelector('ol.sources'); if(!list) return;
+  var pop=document.createElement('div'); pop.className='pop'; pop.setAttribute('role','dialog'); pop.setAttribute('aria-modal','false'); pop.hidden=true;
+  document.body.appendChild(pop); var cur=null;
+  function close(){ if(!cur) return; cur.setAttribute('aria-expanded','false'); var c=cur; cur=null; pop.classList.remove('on'); setTimeout(function(){ if(!cur) pop.hidden=true; },200); c.focus({preventScroll:true}); }
+  function open(a){
+    var n=a.getAttribute('data-src'), li=document.getElementById('src-'+n); if(!li) return;
+    if(cur===a){ close(); return; } if(cur) cur.setAttribute('aria-expanded','false');
+    cur=a; a.setAttribute('aria-expanded','true');
+    var body=li.cloneNode(true); var b=body.querySelector('.srcback'); if(b) b.remove();
+    pop.innerHTML='<div class="ph"><span class="pk">Source '+n+'</span><button class="px" type="button" aria-label="Close">&times;</button></div><div class="pb"></div><a class="pall" href="#src-'+n+'">See it in the source list</a>';
+    pop.querySelector('.pb').innerHTML=body.innerHTML;
+    pop.querySelector('.px').onclick=close;
+    pop.querySelector('.pall').onclick=function(e){ e.preventDefault(); var t=cur; close(); jump(n,t); };
+    pop.hidden=false;
+    if(window.innerWidth>640){
+      var r=a.getBoundingClientRect(), w=pop.offsetWidth, x=r.left+window.scrollX+r.width/2-w/2;
+      x=Math.max(16+window.scrollX,Math.min(x,window.scrollX+document.documentElement.clientWidth-w-16));
+      pop.style.left=x+'px'; pop.style.top=(r.bottom+window.scrollY+10)+'px';
+    }
+    requestAnimationFrame(function(){ pop.classList.add('on'); });
+    pop.querySelector('.px').focus({preventScroll:true});
+  }
+  function jump(n,from){
+    var li=document.getElementById('src-'+n); var bk=li.querySelector('.srcback');
+    if(!bk){ bk=document.createElement('a'); bk.className='srcback'; bk.href='#'; bk.textContent='Back to the text'; li.appendChild(bk); }
+    bk.onclick=function(e){ e.preventDefault(); from.scrollIntoView({block:'center'}); from.focus({preventScroll:true}); };
+    li.classList.add('hl'); setTimeout(function(){ li.classList.remove('hl'); },2400);
+    li.scrollIntoView({block:'start',behavior:'smooth'});
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('.cn a');
+    if(a){ e.preventDefault(); open(a); return; }
+    if(cur&&!pop.contains(e.target)) close();
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+</body>
+</html>
