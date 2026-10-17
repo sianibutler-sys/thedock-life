@@ -58,3 +58,8 @@
 /* tooltip */
 .dtip{position:absolute;z-index:30;pointer-events:none;background:#14253F;color:#FBF8F2;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.06em;padding:7px 10px;border-radius:5px;white-space:nowrap;opacity:0;transition:opacity .12s}
 .dtip.on{opacity:1}
+.dfig.photo img{display:block;width:100%;height:auto;border-radius:6px;border:1px solid rgba(20,37,63,.18);filter:sepia(.08)}
+.dfig.portrait{max-width:260px;margin-left:auto;margin-right:auto}
+.dfig.pair .imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.dfig.pair .imgs{grid-template-columns:1fr}}
+.dfig figcaption a{color:inherit;text-underline-offset:3px}
