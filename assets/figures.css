@@ -63,3 +63,6 @@
 .dfig.pair .imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media (max-width:560px){.dfig.pair .imgs{grid-template-columns:1fr}}
 .dfig figcaption a{color:inherit;text-underline-offset:3px}
+.dfig.wl svg{border:0;background:transparent;border-radius:0;max-width:640px;margin:0 auto}
+.dfig.wl a text{cursor:pointer}
+.dfig.wl a:hover text{text-decoration:underline}
