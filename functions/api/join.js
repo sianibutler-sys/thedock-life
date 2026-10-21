@@ -1,6 +1,7 @@
 // Adds a sign-up from thedock.life to the Guest List table in Airtable.
 // If the email is already on the list, it merges the new interests instead of adding a second row.
 import { sendWelcome } from '../_lib/welcome.js';
+import { sendWelcomeText } from '../_lib/welcome-text.js';
 
 const BASE = 'appQSH0Qni0DmPSA1';
 const TABLE = 'tbloPQRWIlXwTuyJc'; // Guest List
@@ -76,6 +77,8 @@ export async function onRequestPost({ request, env, waitUntil }) {
       body: JSON.stringify({ fields, typecast: true }),
     });
     if (!saved.ok) return json({ error: 'save failed' }, 502);
+    // Already on the list: text only if this is the first time they agreed to texts.
+    if (textsOk && !existing.fields['Texts OK']) waitUntil(sendWelcomeText(env, phone, existing.fields['First name'] || first));
     return json({ ok: true });
   }
 
@@ -100,5 +103,6 @@ export async function onRequestPost({ request, env, waitUntil }) {
   if (!saved.ok) return json({ error: 'save failed', airtableStatus: saved.status }, 502);
   // New sign-ups only: someone already on the list does not get a second thank-you.
   waitUntil(sendWelcome(env, email, first));
+  if (textsOk) waitUntil(sendWelcomeText(env, phone, first));
   return json({ ok: true });
 }
