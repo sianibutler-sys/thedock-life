@@ -249,13 +249,12 @@ footer .ns{font-size:clamp(20px,2.6vw,24px);margin:22px 0 4px;opacity:.92}
       <div class="k">Dock Supper Club</div>
       <div class="big">Edition 01</div>
       <div class="sc">an evening on the water</div>
-      <div class="meta k">Thursday, October 29<br>Inner Harbor, Baltimore</div>
-      <div class="count k" id="count" hidden></div>
+      <div class="meta k">New date to come<br>Inner Harbor, Baltimore</div>
       <img class="dab" src="/assets/dab.png" alt="">
       <div class="k" style="opacity:.75">With The Chef Al Experience</div>
       <div class="names"><a class="kopen" href="/kitchen#al">Chef Al Green</a> &amp; <a class="kopen" href="/kitchen#cheyenne">Cheyenne Green</a></div>
       <a class="kmeet k" href="/kitchen">Meet the chefs</a>
-      <p class="note" id="ednote">Edition 01 is a small first evening among friends. The next one opens to the guest list first.</p>
+      <p class="note" id="ednote">Edition 01 is moving to a new date. The guest list hears it first.</p>
     </div>
   </div>
 </section>
@@ -445,21 +444,7 @@ footer .ns{font-size:clamp(20px,2.6vw,24px);margin:22px 0 4px;opacity:.92}
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .08, rootMargin: '0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (el.parentElement.classList.contains('three') ? [...el.parentElement.children].indexOf(el) * .35 : 0) + 's'; io.observe(el); });
 
-  // ---- Edition 01 countdown: days and hours, then hours and minutes on the day ----
-  (() => {
-    const c = document.getElementById('count'), note = document.getElementById('ednote');
-    const doors = Date.parse('2026-10-29T17:00:00-04:00'), end = Date.parse('2026-10-29T22:00:00-04:00');
-    const plural = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
-    function update() {
-      const now = Date.now(), ms = doors - now;
-      if (now >= end) { c.hidden = true; note.textContent = 'Edition 01 was October 29. Thank you to everyone who came to the water. The next evening is being planned now, and the guest list hears first.'; return; }
-      if (now >= doors) { c.textContent = 'Happening now'; c.hidden = false; return; }
-      const mins = Math.floor(ms / 6e4), d = Math.floor(mins / 1440), h = Math.floor(mins % 1440 / 60), m = mins % 60;
-      c.textContent = d >= 1 ? 'In ' + plural(d, 'day') + ', ' + plural(h, 'hour') : 'Doors in ' + (h ? plural(h, 'hour') + ', ' : '') + plural(m, 'minute');
-      c.hidden = false;
-    }
-    update(); setInterval(update, 30000);
-  })();
+  // Edition 01 countdown is paused while the new date is set. Restore it from git history (commit before this one) with the new date.
 
   // ---- guest list ----
   const form = document.getElementById('form'), msg = document.getElementById('msg'), go = document.getElementById('go');
